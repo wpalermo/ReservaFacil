@@ -2,8 +2,6 @@ package com.cvc.financeiro.transferencia.service.impl;
 
 import java.util.Arrays;
 
-import javax.transaction.TransactionalException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,6 +45,6 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 		
 		transferenciaRepository.save(transferencia);
 		
-		return null;
+		return transferencia;
 	}
 }
