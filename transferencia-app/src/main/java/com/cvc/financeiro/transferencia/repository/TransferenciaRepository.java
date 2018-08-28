@@ -1,4 +1,4 @@
-package com.cvc.financeiro.transferencia;
+package com.cvc.financeiro.transferencia.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

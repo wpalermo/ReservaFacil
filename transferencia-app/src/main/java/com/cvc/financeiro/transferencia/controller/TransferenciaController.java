@@ -12,6 +12,8 @@ import com.cvc.financeiro.transferencia.entities.Transferencia;
 @CrossOrigin(origins = "*")
 @RequestMapping("/transferencia")
 public class TransferenciaController {
+	
+	
 
 	public ResponseEntity<Transferencia> get() {
 		

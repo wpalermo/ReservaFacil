@@ -4,6 +4,6 @@ import java.time.LocalDate;
 
 public interface TaxaService {
 	
-	Integer calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento);
+	Float calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento, Float valor);
 
 }
