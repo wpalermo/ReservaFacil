@@ -13,7 +13,7 @@ public class Transferencia {
 	private String contaOrigem;
 	private String contaDestrino;
 	private Float valor;
-	private Integer taxa;
+	private Float taxa;
 	
 	@Column
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
@@ -47,11 +47,11 @@ public class Transferencia {
 		this.valor = valor;
 	}
 
-	public Integer getTaxa() {
+	public Float getTaxa() {
 		return taxa;
 	}
 
-	public void setTaxa(Integer taxa) {
+	public void setTaxa(Float taxa) {
 		this.taxa = taxa;
 	}
 

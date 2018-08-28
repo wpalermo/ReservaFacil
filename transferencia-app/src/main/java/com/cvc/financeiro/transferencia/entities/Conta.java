@@ -9,9 +9,6 @@ import javax.persistence.Id;
 public class Conta {
 	
 	@Id
-	@GeneratedValue
-	private Integer id;
-	
 	@Column
 	private String conta;
 	
@@ -21,13 +18,6 @@ public class Conta {
 	@Column
 	private Float saldo;
 	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getConta() {
 		return conta;
 	}
