@@ -1,5 +1,7 @@
 package com.cvc.financeiro.transferencia.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +24,18 @@ import com.cvc.financeiro.transferencia.service.TransferenciaService;
 @CrossOrigin(origins = "*")
 @RequestMapping("/transferencia")
 public class TransferenciaController {
-	
+
 	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-	
+
 	@Autowired
 	private TransferenciaService transferenciaService;
 
-	@RequestMapping(method = RequestMethod.GET, produces= {"application/json"})
+	@RequestMapping(method = RequestMethod.GET, produces = { "application/json" })
 	@ResponseStatus(value = HttpStatus.OK)
-	public ResponseEntity<Transferencia> get() {
-		
-		return null;
+	public ResponseEntity<List<Transferencia>> get() {
+		return new ResponseEntity<>(transferenciaService.buscarTodasTransferencias(), HttpStatus.OK);
 	}
 
-	
 	@RequestMapping(method = RequestMethod.PUT, path = "/{id}")
 	@ResponseStatus(value = HttpStatus.OK)
 	@ResponseBody
@@ -44,33 +44,34 @@ public class TransferenciaController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	@ResponseStatus(value = HttpStatus.CREATED)
+	@ResponseStatus(value = HttpStatus.OK)
 	@ResponseBody
 	public ResponseEntity<Transferencia> post(RequestEntity<Transferencia> request) {
-		
+
 		Transferencia returnable;
-		
+
 		try {
+
 			returnable = transferenciaService.realizarTransferencia(request.getBody());
-		}catch(TaxaException te) {
+			
+			if(returnable != null)
+				return new ResponseEntity<>(HttpStatus.OK);
+
+			
+		} catch (TaxaException | TransferenciaException te) {
 			logger.error(te.getMessage());
-			return new ResponseEntity<>(new Transferencia(), HttpStatus.EXPECTATION_FAILED);
-		}catch(TransferenciaException te) {
-			logger.error(te.getMessage());
-			return new ResponseEntity<>(new Transferencia(), HttpStatus.EXPECTATION_FAILED);
+			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
 		}
-		
-		return new ResponseEntity<>(returnable, HttpStatus.CREATED);
-		
+
+		return new ResponseEntity<>(HttpStatus.OK);
+
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
-	@ResponseStatus(value = HttpStatus.OK)
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
 	@ResponseBody
 	public void delete(String id) {
-		
+
 	}
-	
-	
 
 }
