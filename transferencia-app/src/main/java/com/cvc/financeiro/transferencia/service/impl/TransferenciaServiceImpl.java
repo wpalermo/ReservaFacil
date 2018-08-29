@@ -1,6 +1,7 @@
 package com.cvc.financeiro.transferencia.service.impl;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import com.cvc.financeiro.transferencia.repository.ContaRepository;
 import com.cvc.financeiro.transferencia.repository.TransferenciaRepository;
 import com.cvc.financeiro.transferencia.service.TaxaService;
 import com.cvc.financeiro.transferencia.service.TransferenciaService;
+import com.google.common.collect.Lists;
 
 @Service
 public class TransferenciaServiceImpl implements TransferenciaService{
@@ -24,6 +26,11 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 	
 	@Autowired
 	private TransferenciaRepository transferenciaRepository;
+	
+	@Override
+	public List<Transferencia> buscarTodasTransferencias() {
+		return Lists.newArrayList(transferenciaRepository.findAll());
+	}
 
 	@Override
 	public Transferencia realizarTransferencia(Transferencia transferencia) {
@@ -47,4 +54,6 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 		
 		return transferencia;
 	}
+
+
 }

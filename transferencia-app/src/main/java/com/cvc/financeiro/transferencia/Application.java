@@ -2,11 +2,9 @@ package com.cvc.financeiro.transferencia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 
-/**
- * Hello world!
- *
- */
+@PropertySource(value="file:./application.yml")
 @SpringBootApplication
 public class Application 
 {

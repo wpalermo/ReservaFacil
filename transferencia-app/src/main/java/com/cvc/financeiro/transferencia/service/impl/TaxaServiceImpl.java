@@ -14,10 +14,9 @@ public class TaxaServiceImpl implements TaxaService {
 
 	@Override
 	public Float calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento, Float valor) {
-		
 		//Operacao TIPO A
 		if(dataTransaferencia.isEqual(dataAgendamento))
-			return new Float(3);
+			return Float.valueOf(3) + (valor * (3/100f));
 		
 		//Operacao TIPO B
 		Long diasDiferenca = ChronoUnit.DAYS.between(dataTransaferencia, dataAgendamento);
@@ -31,15 +30,16 @@ public class TaxaServiceImpl implements TaxaService {
 		
 		//Operacao TIPO C
 		if(TransaferenciaUtils.isBetween(10, 20, diasDiferenca.intValue()))
-			return (diasDiferenca.floatValue() * (10/100));
+			return (valor * (8/100f));
 		else if(TransaferenciaUtils.isBetween(20, 30, diasDiferenca.intValue()))
-			return (diasDiferenca.floatValue() * (8/100));
+			return (valor * (6/100f));
 		else if(TransaferenciaUtils.isBetween(30, 40, diasDiferenca.intValue()))
-			return (diasDiferenca.floatValue() * (6/100));
-		else if( diasDiferenca > 40) 
-			return (diasDiferenca.floatValue() * (4/100));
+			return (valor * (3/100f));
+		else if( diasDiferenca > 40 && valor > 100000) 
+			return (valor * (2/100f));
+		else 
+			throw new TaxaException("Não foi possivel calcular taxa");
 		
-		return null;
 	}
 
 	

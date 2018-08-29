@@ -4,15 +4,28 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Transferencia {
 	
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	@Column
 	private String contaOrigem;
+	
+	@Column
 	private String contaDestrino;
+	
+	@Column
 	private Float valor;
+	
+	@Column
 	private Float taxa;
 	
 	@Column
@@ -22,6 +35,15 @@ public class Transferencia {
 	@Column
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
 	private LocalDate dataAgendamento;
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getContaOrigem() {
 		return contaOrigem;
