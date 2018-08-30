@@ -11,7 +11,7 @@ import com.cvc.financeiro.transferencia.response.TaxaResponse;
 @FeignClient(name = "taxa-app", fallback=TaxaResourceFallback.class)
 public interface TaxaResource {
 
-	@RequestMapping(method = RequestMethod.POST, value = "taxa")
+	@RequestMapping(method = RequestMethod.POST, value="taxa")
 	TaxaResponse post(TaxaRequest request);
 	
 }

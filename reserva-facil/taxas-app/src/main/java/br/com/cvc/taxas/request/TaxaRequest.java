@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class TaxaRequest {
 	
 	private LocalDate dataAgendamento;
-	private LocalDate dataTransacao;
+	private LocalDate dataTransferencia;
 	private Float valor;
 	
 	
@@ -15,11 +15,11 @@ public class TaxaRequest {
 	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
 	}
-	public LocalDate getDataTransacao() {
-		return dataTransacao;
+	public LocalDate getDataTransferencia() {
+		return dataTransferencia;
 	}
-	public void setDataTransacao(LocalDate dataTransacao) {
-		this.dataTransacao = dataTransacao;
+	public void setDataTransferencia(LocalDate dataTransferencia) {
+		this.dataTransferencia = dataTransferencia;
 	}
 	public Float getValor() {
 		return valor;

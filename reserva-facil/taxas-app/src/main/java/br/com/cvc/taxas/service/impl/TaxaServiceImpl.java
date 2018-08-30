@@ -45,7 +45,7 @@ public class TaxaServiceImpl implements TaxaService {
 
 	@Override
 	public Float calcularTaxa(TaxaRequest taxa) {
-		return calcularTaxa(taxa.getDataTransacao(), taxa.getDataAgendamento(), taxa.getValor());
+		return calcularTaxa(taxa.getDataTransferencia(), taxa.getDataAgendamento(), taxa.getValor());
 	}
 
 	

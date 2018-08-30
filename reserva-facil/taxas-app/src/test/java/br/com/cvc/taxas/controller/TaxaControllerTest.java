@@ -41,7 +41,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now());
+		taxaRequest.setDataTransferencia(LocalDate.now());
 		taxaRequest.setValor(2000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
@@ -57,7 +57,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now().plusDays(4));
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(4));
 		taxaRequest.setValor(2000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
@@ -73,7 +73,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now().plusDays(15));
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(15));
 		taxaRequest.setValor(2000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
@@ -89,7 +89,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now().plusDays(25));
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(25));
 		taxaRequest.setValor(2000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
@@ -105,7 +105,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now().plusDays(35));
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(35));
 		taxaRequest.setValor(2000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
@@ -121,7 +121,7 @@ public class TaxaControllerTest {
 		TaxaRequest taxaRequest = new TaxaRequest();
 		
 		taxaRequest.setDataAgendamento(LocalDate.now());
-		taxaRequest.setDataTransacao(LocalDate.now().plusDays(45));
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(45));
 		taxaRequest.setValor(20000000f);
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
