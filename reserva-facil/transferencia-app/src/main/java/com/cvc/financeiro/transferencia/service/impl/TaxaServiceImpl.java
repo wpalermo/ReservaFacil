@@ -1,45 +1,47 @@
 package com.cvc.financeiro.transferencia.service.impl;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cvc.financeiro.transferencia.exception.TaxaException;
+import com.cvc.financeiro.transferencia.histrixCommands.TaxaHttpRequest;
+import com.cvc.financeiro.transferencia.request.TaxaRequest;
+import com.cvc.financeiro.transferencia.resource.TaxaResource;
+import com.cvc.financeiro.transferencia.response.TaxaResponse;
 import com.cvc.financeiro.transferencia.service.TaxaService;
-import com.cvc.financeiro.transferencia.utils.TransaferenciaUtils;
 
 @Service
 public class TaxaServiceImpl implements TaxaService {
+	
+	@Autowired
+	private TaxaResource taxaResource;
+	
+	private TaxaResponse response;
 
 	@Override
-	public Float calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento, Float valor) {
-		//Operacao TIPO A
-		if(dataTransaferencia.isEqual(dataAgendamento))
-			return Float.valueOf(3) + (valor * (3/100f));
+	public Float calcularTaxa(LocalDate dataTransferencia, LocalDate dataAgendamento, Float valor) {
 		
-		//Operacao TIPO B
-		Long diasDiferenca = ChronoUnit.DAYS.between(dataTransaferencia, dataAgendamento);
+		TaxaRequest request = new TaxaRequest();
 		
-		if(diasDiferenca < 0)
-			throw new TaxaException("Data de agendamento invalida");
+		request.setDataAgendamento(dataAgendamento);
+		request.setDataTransferencia(dataTransferencia);
+		request.setValor(valor);
 		
-		if( diasDiferenca < 10) {
-			return (diasDiferenca.floatValue() * 12);
-		}
+		return this.calcularTaxa(request);
+	}
+
+	@Override
+	public Float calcularTaxa(TaxaRequest taxaRequest) {
 		
-		//Operacao TIPO C
-		if(TransaferenciaUtils.isBetween(10, 20, diasDiferenca.intValue()))
-			return (valor * (8/100f));
-		else if(TransaferenciaUtils.isBetween(20, 30, diasDiferenca.intValue()))
-			return (valor * (6/100f));
-		else if(TransaferenciaUtils.isBetween(30, 40, diasDiferenca.intValue()))
-			return (valor * (3/100f));
-		else if( diasDiferenca > 40 && valor > 100000) 
-			return (valor * (2/100f));
-		else 
-			throw new TaxaException("Não foi possivel calcular taxa");
+		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, taxaRequest);
 		
+		taxaHttpRequest.toObservable()
+					   .subscribe(returned -> response = returned,
+							   	  Throwable::printStackTrace,
+							   	  () -> {});
+		
+		return returned;
 	}
 
 	

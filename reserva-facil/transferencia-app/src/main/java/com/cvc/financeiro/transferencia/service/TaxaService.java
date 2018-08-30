@@ -2,6 +2,8 @@ package com.cvc.financeiro.transferencia.service;
 
 import java.time.LocalDate;
 
+import com.cvc.financeiro.transferencia.request.TaxaRequest;
+
 public interface TaxaService {
 	
 	
@@ -13,5 +15,7 @@ public interface TaxaService {
 	 * @return Float
 	 */
 	Float calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento, Float valor);
+	
+	Float calcularTaxa(TaxaRequest taxaRequest);
 
 }

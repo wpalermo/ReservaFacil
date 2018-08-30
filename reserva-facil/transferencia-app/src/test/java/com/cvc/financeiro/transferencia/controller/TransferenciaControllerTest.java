@@ -18,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import com.cvc.financeiro.transferencia.entities.Transferencia;
+import com.cvc.financeiro.transferencia.request.TransferenciaRequest;
+import com.cvc.financeiro.transferencia.response.TransferenciaResponse;
 
 
 @RunWith(SpringRunner.class)
@@ -52,10 +54,13 @@ public class TransferenciaControllerTest {
 		transferencia.setValor(2000f);
 		
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -71,10 +76,13 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -90,10 +98,13 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -109,10 +120,13 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -128,10 +142,13 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -147,10 +164,13 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(100001f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
-		ResponseEntity<Transferencia> response = restTemplate.postForEntity(BASE_PATH, request, Transferencia.class);
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
 		
-		Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
+		ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TransferenciaResponse.class);
+		
+		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
 
 
 	}
@@ -166,7 +186,10 @@ public class TransferenciaControllerTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		RequestEntity<Transferencia> request = new RequestEntity<Transferencia>(transferencia, HttpMethod.POST, new URI(BASE_PATH));
+		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
+		transferenciaRequest.setTrasnferencia(transferencia);
+		
+		RequestEntity<TransferenciaRequest> request = new RequestEntity<TransferenciaRequest>(transferenciaRequest, HttpMethod.POST, new URI(BASE_PATH));
 		restTemplate.postForEntity(BASE_PATH, request, null);
 		
 
