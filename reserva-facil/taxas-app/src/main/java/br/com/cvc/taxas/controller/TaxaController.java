@@ -18,20 +18,17 @@ import br.com.cvc.taxas.service.TaxaService;
 
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("/transferencia")
+@RequestMapping("/taxa")
 public class TaxaController {
 	
 	@Autowired
 	private TaxaService taxaService;
 	
 	@RequestMapping(method = RequestMethod.GET, produces = { "application/json" })
-	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	@ResponseStatus(value = HttpStatus.OK)
 	public ResponseEntity<TaxaResponse> get(RequestEntity<TaxaRequest> request) {
-		
-		TaxaResponse response = new TaxaResponse();
-		response.setValor(taxaService.calcularTaxa(request.getBody()));
-		
-		return new ResponseEntity<>(response, HttpStatus.OK);
+		return null;
+
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, path = "/{id}")
@@ -40,12 +37,29 @@ public class TaxaController {
 	public ResponseEntity<String> put(Integer id, RequestEntity<String> request) {
 		return null;
 	}
+	
+	@RequestMapping(method = RequestMethod.PATCH)
+	@ResponseStatus(value = HttpStatus.OK)
+	@ResponseBody
+	public ResponseEntity<TaxaResponse> patch(RequestEntity<TaxaRequest> request) {
+		TaxaResponse response = new TaxaResponse();
+		response.setValor(taxaService.calcularTaxa(request.getBody()));
+		
+		return new ResponseEntity<>(response, HttpStatus.OK);	
+		
+	}
+	
+	
+
 
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	@ResponseBody
-	public ResponseEntity<String> post(RequestEntity<String> request){
-		return null;
+	public ResponseEntity<TaxaResponse> post(RequestEntity<TaxaRequest> request) {
+		TaxaResponse response = new TaxaResponse();
+		response.setValor(taxaService.calcularTaxa(request.getBody()));
+		
+		return new ResponseEntity<>(response, HttpStatus.OK);	
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")

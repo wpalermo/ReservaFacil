@@ -31,7 +31,7 @@ public class TransferenciaServiceImpl implements TransferenciaService{
 	public Transferencia realizarTransferencia(Transferencia transferencia) {
 		
 		//Valida se contas existem na base.
-		if(!contaService.isValida(transferencia.getContaDestrino()) || contaService.isValida(transferencia.getContaOrigem()))
+		if(!contaService.isValida(transferencia.getContaDestrino()) || !contaService.isValida(transferencia.getContaOrigem()))
 			throw new TransferenciaException("Conta Invalida");
 
 		//Chama o servico para calcular taxas
