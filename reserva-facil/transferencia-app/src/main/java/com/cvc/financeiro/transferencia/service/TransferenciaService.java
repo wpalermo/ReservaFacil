@@ -3,6 +3,7 @@ package com.cvc.financeiro.transferencia.service;
 import java.util.List;
 
 import com.cvc.financeiro.transferencia.entities.Transferencia;
+import com.cvc.financeiro.transferencia.utils.StatusTransferenciaEnum;
 
 public interface TransferenciaService {
 	
@@ -15,11 +16,21 @@ public interface TransferenciaService {
 
 	/**
 	 * Realiza a transferencia de valores de uma conta origem para uma destino. 
-	 * Usa o service de taxas para calcular o valor das taxas.
+	 * Busca no banco as transferencias que devem ser realizadas de acordo com a data de transferencia
 	 * @param transferencia
 	 * @return
 	 */
-	Transferencia realizarTransferencia(Transferencia transferencia);
+	void realizarTransferencia();
+	
+	
+	/**
+	 * Agenda a transferencia. Usa o servico de taxa para setar o valor da taxa.
+	 * @param transferencia
+	 */
+	
+	void agendarTransferencia(Transferencia transferencia);
+	
+	void atualizarStatus(Transferencia transferencia, StatusTransferenciaEnum status);
 
 	
 }

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.cvc.financeiro.transferencia.entities.Transferencia;
 import com.cvc.financeiro.transferencia.exception.TaxaException;
 import com.cvc.financeiro.transferencia.exception.TransferenciaException;
 import com.cvc.financeiro.transferencia.request.TransferenciaRequest;
@@ -37,13 +36,11 @@ public class TransferenciaController {
 	@ResponseStatus(value = HttpStatus.OK)
 	public ResponseEntity<List<TransferenciaResponse>> get() {
 
-		List<TransferenciaResponse> returnable = transferenciaService.buscarTodasTransferencias()
-									 								 .stream()
-									 								 .map(t -> {
-																				TransferenciaResponse response = new TransferenciaResponse();
-																				response.setTransferencia(t);
-																				return response;
-									 								 }).collect(Collectors.toList());
+		List<TransferenciaResponse> returnable = transferenciaService.buscarTodasTransferencias().stream().map(t -> {
+			TransferenciaResponse response = new TransferenciaResponse();
+			response.setTransferencia(t);
+			return response;
+		}).collect(Collectors.toList());
 
 		return new ResponseEntity<>(returnable, HttpStatus.OK);
 	}
@@ -60,22 +57,14 @@ public class TransferenciaController {
 	@ResponseBody
 	public ResponseEntity<TransferenciaResponse> post(RequestEntity<TransferenciaRequest> request) {
 
-		Transferencia returnable;
-
 		try {
-
-			returnable = transferenciaService.realizarTransferencia(request.getBody().getTrasnferencia());
-
-			if (returnable != null)
-				return new ResponseEntity<>(HttpStatus.OK);
+			transferenciaService.agendarTransferencia(request.getBody().getTrasnferencia());
+			return new ResponseEntity<>(HttpStatus.OK);
 
 		} catch (TaxaException | TransferenciaException te) {
 			logger.error(te.getMessage());
-			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-		}
-
-		return new ResponseEntity<>(HttpStatus.OK);
-
+			return new ResponseEntity<>(new TransferenciaResponse(te.getMessage()), HttpStatus.EXPECTATION_FAILED);
+		} 
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
@@ -86,3 +75,4 @@ public class TransferenciaController {
 	}
 
 }
+ 

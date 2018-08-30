@@ -2,6 +2,7 @@ package com.cvc.financeiro.transferencia.service.impl;
 
 import java.time.LocalDate;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ import com.cvc.financeiro.transferencia.service.TaxaService;
 
 @Service
 public class TaxaServiceImpl implements TaxaService {
+	
+	private final Logger logger = Logger.getLogger(this.getClass());
 	
 	@Autowired
 	private TaxaResource taxaResource;
@@ -39,9 +42,9 @@ public class TaxaServiceImpl implements TaxaService {
 		taxaHttpRequest.toObservable()
 					   .subscribe(returned -> response = returned,
 							   	  Throwable::printStackTrace,
-							   	  () -> {});
+							   	  () -> logger.info("Request de taxa feito com sucesso"));
 		
-		return returned;
+		return response.getValor();
 	}
 
 	

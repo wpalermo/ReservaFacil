@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.cvc.financeiro.transferencia.utils.StatusTransferenciaEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -20,7 +21,7 @@ public class Transferencia {
 	private String contaOrigem;
 	
 	@Column
-	private String contaDestrino;
+	private String contaDestino;
 	
 	@Column
 	private Float valor;
@@ -35,6 +36,8 @@ public class Transferencia {
 	@Column
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
 	private LocalDate dataAgendamento;
+	
+	private StatusTransferenciaEnum status;
 
 
 	public Integer getId() {
@@ -53,12 +56,12 @@ public class Transferencia {
 		this.contaOrigem = contaOrigem;
 	}
 
-	public String getContaDestrino() {
-		return contaDestrino;
+	public String getContaDestino() {
+		return contaDestino;
 	}
 
-	public void setContaDestrino(String contaDestrino) {
-		this.contaDestrino = contaDestrino;
+	public void setContaDestino(String contaDestino) {
+		this.contaDestino = contaDestino;
 	}
 
 	public Float getValor() {
@@ -91,6 +94,14 @@ public class Transferencia {
 
 	public void setDataAgendamento(LocalDate dataAgendamento) {
 		this.dataAgendamento = dataAgendamento;
+	}
+
+	public StatusTransferenciaEnum getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusTransferenciaEnum status) {
+		this.status = status;
 	} 
 	
 	
