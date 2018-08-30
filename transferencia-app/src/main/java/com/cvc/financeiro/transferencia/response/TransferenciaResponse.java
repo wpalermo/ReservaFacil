@@ -5,7 +5,7 @@ import com.cvc.financeiro.transferencia.entities.Transferencia;
 public class TransferenciaResponse {
 	
 	private Transferencia transferencia;
-
+ 
 	public Transferencia getTransferencia() {
 		return transferencia;
 	}
