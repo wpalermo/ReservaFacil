@@ -42,7 +42,7 @@ public class TaxaServiceImpl implements TaxaService {
 		taxaHttpRequest.toObservable()
 					   .subscribe(returned -> response = returned,
 							   	  Throwable::printStackTrace,
-							   	  () -> logger.info("Request de taxa feito com sucesso"));
+							   	  () -> logger.info("Request de taxa"));
 		
 		return response.getValor();
 	}

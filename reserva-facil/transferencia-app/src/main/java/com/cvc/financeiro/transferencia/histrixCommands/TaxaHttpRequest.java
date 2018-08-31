@@ -26,13 +26,13 @@ public class TaxaHttpRequest extends HystrixCommand<TaxaResponse> {
 
 	@Override
 	protected TaxaResponse run() throws Exception {
-		logger.info("Fazendo requisicao para CAMPANHA-SERVICE");
+		logger.info("Fazendo requisicao para TAXA-APP");
 		return taxaResource.post(taxaRequest);
 	}
 
 	@Override
 	protected TaxaResponse getFallback() {
-		logger.info("Problema ao acessar servico de campanhas CAMPANHA-SERVICE");
+		logger.info("Problema ao acessar servico de campanhas TAXA-APP");
 		return null;
 	}
 

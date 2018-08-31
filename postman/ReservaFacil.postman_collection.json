@@ -1,0 +1,85 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ReservaFacil",
+		"_postman_id": "fd189760-882d-1e37-3c10-a52fc40bbd30",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "transferencia-app",
+			"description": "",
+			"item": [
+				{
+					"name": "transferenciaPost",
+					"request": {
+						"url": "http://localhost:8083/transferencia",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"trasnferencia\" : {\n\t\t\"contaOrigem\": \"1000\",\n\t\t\"contaDestino\": \"1001\",\n\t\t\"valor\": 2000.00,\n\t\t\"dataTransferencia\": \"30/08/2018\",\n\t\t\"dataAgendamento\": \"30/08/2018\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "transferenciaGet",
+					"request": {
+						"url": "http://localhost:8083/transferencia",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transferencia-app-zuul",
+			"description": "",
+			"item": [
+				{
+					"name": "transferenciaPost",
+					"request": {
+						"url": "http://localhost:8083/transferencia",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"trasnferencia\" : {\n\t\t\"contaOrigem\": \"1000\",\n\t\t\"contaDestino\": \"1001\",\n\t\t\"valor\": 2000.00,\n\t\t\"dataTransferencia\": \"30/08/2018\",\n\t\t\"dataAgendamento\": \"30/08/2018\"\n\t}\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "transferenciaGet",
+					"request": {
+						"url": "http://localhost:8083/transferencia",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

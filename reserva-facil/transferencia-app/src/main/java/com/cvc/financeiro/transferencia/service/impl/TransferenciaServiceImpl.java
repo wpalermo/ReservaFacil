@@ -33,7 +33,7 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	@Override
 	public void realizarTransferencia() {
 
-		List<Transferencia> transferencias = transferenciaRepository.findByDataTransferencia(LocalDate.now());
+		List<Transferencia> transferencias = transferenciaRepository.findByDataTransferenciaAndStatus(LocalDate.now(), StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 
 		for (Transferencia transferencia : transferencias) {
 			// Valida se contas existem na base.
@@ -62,6 +62,8 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 
 			// atualiza as contas e salva a transferencia
 			contaService.atualizaConta(Arrays.asList(contaOrigem, contaDestino));
+			this.atualizarStatus(transferencia, StatusTransferenciaEnum.SUCESSO);
+
 		}
 	}
 
@@ -75,6 +77,19 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 
 		// Chama o servico para calcular taxas e salva a transacao com status de aguardando transferencia
 		try {
+			
+			if(transferencia.getDataAgendamento().isBefore(LocalDate.now())) {
+				transferencia.setStatus(StatusTransferenciaEnum.DATA_AGENDAMENTO_INVALIDA);
+				transferenciaRepository.save(transferencia);
+				throw new TransferenciaException("Data de agendamento invalida");
+			}
+			
+			if(transferencia.getDataTransferencia().isBefore(LocalDate.now())) {
+				transferencia.setStatus(StatusTransferenciaEnum.DATA_TRANSACAO_INVALIDA);
+				transferenciaRepository.save(transferencia);
+				throw new TransferenciaException("Data de transferencia invalida");
+			}
+			
 			Float taxa = taxaService.calcularTaxa(transferencia.getDataTransferencia(),
 					transferencia.getDataAgendamento(), transferencia.getValor());
 			transferencia.setTaxa(taxa);
