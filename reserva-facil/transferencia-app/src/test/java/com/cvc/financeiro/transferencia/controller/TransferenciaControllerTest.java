@@ -33,7 +33,7 @@ import com.cvc.financeiro.transferencia.service.TransferenciaService;
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class TransferenciaControllerTest {
 
-	final String BASE_PATH = "http://localhost:8080/transferencia";
+	final String BASE_PATH = "http://localhost:8083/transferencia";
 
 	private RestTemplate restTemplate;
 

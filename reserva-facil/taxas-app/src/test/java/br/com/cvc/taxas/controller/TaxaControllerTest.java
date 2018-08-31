@@ -24,7 +24,7 @@ import br.com.cvc.taxas.response.TaxaResponse;
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
 public class TaxaControllerTest {
 
-	final String BASE_PATH = "http://localhost:8081/taxa";
+	final String BASE_PATH = "http://localhost:8082/taxa";
 
 	
 	private RestTemplate restTemplate;

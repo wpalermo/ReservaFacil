@@ -37,8 +37,10 @@ public class TaxaServiceImpl implements TaxaService {
 	@Override
 	public Float calcularTaxa(TaxaRequest taxaRequest) {
 		
+		
 		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, taxaRequest);
 		
+		//Executa a chama do servico usando ReactiveX e hystrix para o fallback
 		taxaHttpRequest.toObservable()
 					   .subscribe(returned -> response = returned,
 							   	  Throwable::printStackTrace,

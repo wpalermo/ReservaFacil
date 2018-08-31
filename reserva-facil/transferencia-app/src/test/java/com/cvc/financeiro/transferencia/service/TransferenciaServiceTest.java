@@ -131,7 +131,7 @@ public class TransferenciaServiceTest {
 		Mockito.when(contaService.buscarConta(transferencia.getContaOrigem())).thenReturn(conta1);
 
 		
-		Mockito.when(transferenciaRepository.findByDataTransferencia(LocalDate.now())).thenReturn(transferencias);
+		Mockito.when(transferenciaRepository.findByDataTransferenciaAndStatus(LocalDate.now(), StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA)).thenReturn(transferencias);
 
 		transferenciaService.realizarTransferencia();
 		

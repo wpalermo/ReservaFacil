@@ -19,7 +19,7 @@ public class TaxaResourceTest {
 	@Autowired
 	private TaxaResource resource;
 	
-	@Test
+	@Test(expected=Exception.class)
 	public void resourceTest() {
 		
 		TaxaRequest request = new TaxaRequest();

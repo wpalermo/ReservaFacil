@@ -30,9 +30,16 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	@Autowired
 	private TransferenciaRepository transferenciaRepository;
 
+	
+	@Override
+	public List<Transferencia> buscarTodasTransferencias() {
+		return Lists.newArrayList(transferenciaRepository.findAll());
+	}
+	
 	@Override
 	public void realizarTransferencia() {
 
+		//Busca as transferencias que deve ser feitas
 		List<Transferencia> transferencias = transferenciaRepository.findByDataTransferenciaAndStatus(LocalDate.now(), StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 
 		for (Transferencia transferencia : transferencias) {
@@ -60,24 +67,20 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 			contaOrigem.setSaldo(contaOrigem.getSaldo() - (transferencia.getValor() + transferencia.getTaxa()));
 			contaDestino.setSaldo(contaDestino.getSaldo() + transferencia.getValor());
 
-			// atualiza as contas e salva a transferencia
+			// atualiza as contas e atualiza status da transferencia
 			contaService.atualizaConta(Arrays.asList(contaOrigem, contaDestino));
 			this.atualizarStatus(transferencia, StatusTransferenciaEnum.SUCESSO);
 
 		}
 	}
 
-	@Override
-	public List<Transferencia> buscarTodasTransferencias() {
-		return Lists.newArrayList(transferenciaRepository.findAll());
-	}
+
 
 	@Override
 	public void agendarTransferencia(Transferencia transferencia) {
 
-		// Chama o servico para calcular taxas e salva a transacao com status de aguardando transferencia
 		try {
-			
+			//Valida as datas de agendamento e transferencia
 			if(transferencia.getDataAgendamento().isBefore(LocalDate.now())) {
 				transferencia.setStatus(StatusTransferenciaEnum.DATA_AGENDAMENTO_INVALIDA);
 				transferenciaRepository.save(transferencia);
@@ -90,12 +93,14 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 				throw new TransferenciaException("Data de transferencia invalida");
 			}
 			
+			//Chama o servico de taxa e atualiza a taxa da transferencia
 			Float taxa = taxaService.calcularTaxa(transferencia.getDataTransferencia(),
 					transferencia.getDataAgendamento(), transferencia.getValor());
 			transferencia.setTaxa(taxa);
 			transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 			transferenciaRepository.save(transferencia);
 
+			//TODO: especificar essa exception nao deixar a generica
 		} catch (Exception t) {
 			transferencia.setStatus(StatusTransferenciaEnum.TAXA_NAO_CALCULADA);
 			transferenciaRepository.save(transferencia);

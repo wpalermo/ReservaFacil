@@ -16,7 +16,7 @@ public interface TransferenciaService {
 
 	/**
 	 * Realiza a transferencia de valores de uma conta origem para uma destino. 
-	 * Busca no banco as transferencias que devem ser realizadas de acordo com a data de transferencia
+	 * Busca no banco as transferencias que devem ser realizadas de acordo com a data de transferencia e seu status
 	 * @param transferencia
 	 * @return
 	 */
@@ -30,6 +30,12 @@ public interface TransferenciaService {
 	
 	void agendarTransferencia(Transferencia transferencia);
 	
+	
+	/**
+	 * Atualiza o status de uma transferencia
+	 * @param transferencia
+	 * @param status
+	 */
 	void atualizarStatus(Transferencia transferencia, StatusTransferenciaEnum status);
 
 	

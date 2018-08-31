@@ -18,6 +18,9 @@ public class ScheduledTasks {
     @Autowired
     private TransferenciaService transferenciaService;
     
+    /**
+     * Roda o metodo realizaTransferencia agendado para rodar de 1 em 1 minuto
+     */
     @Scheduled(cron = "1 * * * * *")
     public void realizaTransaferencia() {
     	log.info("Iniciando tarfefa agendada - REALIZAR TRANSFERENCIA {} ", LocalDate.now());
