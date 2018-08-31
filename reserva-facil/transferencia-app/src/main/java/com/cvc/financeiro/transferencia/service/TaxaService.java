@@ -12,7 +12,7 @@ public interface TaxaService {
 	 * @param valor
 	 * @return Float
 	 */
-	public Float calcularTaxa(Transferencia transferencia);
+	void calcularTaxa(Transferencia transferencia);
 
 
 }

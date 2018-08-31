@@ -94,10 +94,7 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 			}
 			
 			//Chama o servico de taxa e atualiza a taxa da transferencia
-			Float taxa = taxaService.calcularTaxa(transferencia);
-			transferencia.setTaxa(taxa);
-			transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
-			transferenciaRepository.save(transferencia);
+			taxaService.calcularTaxa(transferencia);
 
 			//TODO: especificar essa exception nao deixar a generica
 		} catch (Exception t) {
@@ -108,7 +105,8 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 
 	}
 	
-	public void agendarTaxa(Transferencia transferencia) {
+	@Override
+	public void atualizarTaxa(Transferencia transferencia) {
 		transferenciaRepository.save(transferencia);
 	}
 

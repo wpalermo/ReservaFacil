@@ -33,7 +33,7 @@ public class TaxaServiceTest {
 		
 		
 		Mockito.when(response.getValor()).thenReturn(5f);
-		taxaService.calcularTaxa(LocalDate.now(), LocalDate.now(), 2000f);
+		//taxaService.calcularTaxa(LocalDate.now(), LocalDate.now(), 2000f);
 		
 		
 	}

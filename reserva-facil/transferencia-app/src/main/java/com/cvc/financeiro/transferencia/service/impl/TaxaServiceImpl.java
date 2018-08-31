@@ -28,7 +28,7 @@ public class TaxaServiceImpl implements TaxaService {
 	private TaxaResponse response;
 
 	
-	public Float calcularTaxa(Transferencia transferencia) {
+	public void calcularTaxa(Transferencia transferencia) {
 		
 		TaxaRequest request = new TaxaRequest();
 		
@@ -40,12 +40,9 @@ public class TaxaServiceImpl implements TaxaService {
 		
 		//Executa a chama do servico usando ReactiveX e hystrix para o fallback
 		taxaHttpRequest.toObservable()
-					   .subscribe(returned -> transferenciaService.agendarTransferencia(returned),
-							   	  Throwable::printStackTrace,
-							   	  () -> transferenciaService.agendarTransferencia(transferencia));  
+					   .subscribe(returned -> transferenciaService.atualizarTaxa(returned));  
 							   	  
 		
-		return response.getValor();
 	}
 
 	

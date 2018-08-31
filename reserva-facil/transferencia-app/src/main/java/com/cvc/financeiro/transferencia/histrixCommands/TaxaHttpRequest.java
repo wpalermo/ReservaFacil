@@ -28,6 +28,8 @@ public class TaxaHttpRequest extends HystrixCommand<Transferencia> {
 		this.taxaResource = taxaResource;
 		this.transferencia = transferencia;
 		
+		this.taxaRequest = new TaxaRequest();
+		
 		this.taxaRequest.setDataAgendamento(transferencia.getDataAgendamento());
 		this.taxaRequest.setDataTransferencia(transferencia.getDataTransferencia());
 		this.taxaRequest.setValor(transferencia.getValor());

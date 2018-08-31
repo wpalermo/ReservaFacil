@@ -38,5 +38,7 @@ public interface TransferenciaService {
 	 */
 	void atualizarStatus(Transferencia transferencia, StatusTransferenciaEnum status);
 
+	void atualizarTaxa(Transferencia transferencia);
+
 	
 }

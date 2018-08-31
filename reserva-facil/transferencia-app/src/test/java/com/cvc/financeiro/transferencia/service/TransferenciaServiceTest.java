@@ -58,8 +58,8 @@ public class TransferenciaServiceTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		Mockito.when(taxaService.calcularTaxa(transferencia.getDataTransferencia(),
-				transferencia.getDataAgendamento(), transferencia.getValor())).thenReturn(4f);
+		//Mockito.when(taxaService.calcularTaxa(transferencia.getDataTransferencia(),
+		//		transferencia.getDataAgendamento(), transferencia.getValor())).thenReturn(4f);
 
 		transferenciaService.agendarTransferencia(transferencia);
 		
@@ -76,8 +76,8 @@ public class TransferenciaServiceTest {
 		transferencia.setDataTransferencia(LocalDate.now());
 		transferencia.setValor(2000f);
 		
-		Mockito.doThrow(Exception.class).when(taxaService).calcularTaxa(transferencia.getDataTransferencia(),
-				transferencia.getDataAgendamento(), transferencia.getValor());
+		//Mockito.doThrow(Exception.class).when(taxaService).calcularTaxa(transferencia.getDataTransferencia(),
+		//		transferencia.getDataAgendamento(), transferencia.getValor());
 
 		transferenciaService.agendarTransferencia(transferencia);
 		
