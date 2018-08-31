@@ -73,3 +73,9 @@ As classes de teste foram criadas para testar as principais classes de implement
 Para os testes de transferencia e taxa foi usado o *Mockito* esses testes foram necessários para garantir que o fluxo estava funcionando antes de colocar o sistema na arquitetura netflix, pois o eureka e principalmente o zuul tem timeouts bastante baixos e ficam gerando erro durante um processo de debug dificultando bastante um teste via requisição normal.
 
 Criei uma classe de teste chamada *TaxaResourceTest* essa classe está comentada, pois serve basicamente para testar a chamada do serviço de taxas, logo se for deixada para ser compilada, um scan do sonar provavelmente irá barrar o deploy do projeto.   
+
+#### Postman
+No repositorio tem uma collection do postman para teste integrado do projeto. 
+
+
+

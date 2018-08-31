@@ -6,11 +6,13 @@ import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cvc.financeiro.transferencia.entities.Transferencia;
 import com.cvc.financeiro.transferencia.histrixCommands.TaxaHttpRequest;
 import com.cvc.financeiro.transferencia.request.TaxaRequest;
 import com.cvc.financeiro.transferencia.resource.TaxaResource;
 import com.cvc.financeiro.transferencia.response.TaxaResponse;
 import com.cvc.financeiro.transferencia.service.TaxaService;
+import com.cvc.financeiro.transferencia.service.TransferenciaService;
 
 @Service
 public class TaxaServiceImpl implements TaxaService {
@@ -20,31 +22,28 @@ public class TaxaServiceImpl implements TaxaService {
 	@Autowired
 	private TaxaResource taxaResource;
 	
+	@Autowired
+	private TransferenciaService transferenciaService;
+	
 	private TaxaResponse response;
 
-	@Override
-	public Float calcularTaxa(LocalDate dataTransferencia, LocalDate dataAgendamento, Float valor) {
+	
+	public Float calcularTaxa(Transferencia transferencia) {
 		
 		TaxaRequest request = new TaxaRequest();
 		
-		request.setDataAgendamento(dataAgendamento);
-		request.setDataTransferencia(dataTransferencia);
-		request.setValor(valor);
+		request.setDataAgendamento(transferencia.getDataAgendamento());
+		request.setDataTransferencia(transferencia.getDataTransferencia());
+		request.setValor(transferencia.getValor());
 		
-		return this.calcularTaxa(request);
-	}
-
-	@Override
-	public Float calcularTaxa(TaxaRequest taxaRequest) {
-		
-		
-		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, taxaRequest);
+		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, transferencia);
 		
 		//Executa a chama do servico usando ReactiveX e hystrix para o fallback
 		taxaHttpRequest.toObservable()
-					   .subscribe(returned -> response = returned,
+					   .subscribe(returned -> transferenciaService.agendarTransferencia(returned),
 							   	  Throwable::printStackTrace,
-							   	  () -> logger.info("Request de taxa"));
+							   	  () -> transferenciaService.agendarTransferencia(transferencia));  
+							   	  
 		
 		return response.getValor();
 	}

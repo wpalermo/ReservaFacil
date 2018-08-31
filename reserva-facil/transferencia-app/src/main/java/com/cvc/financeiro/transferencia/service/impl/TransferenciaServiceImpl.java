@@ -94,8 +94,7 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 			}
 			
 			//Chama o servico de taxa e atualiza a taxa da transferencia
-			Float taxa = taxaService.calcularTaxa(transferencia.getDataTransferencia(),
-					transferencia.getDataAgendamento(), transferencia.getValor());
+			Float taxa = taxaService.calcularTaxa(transferencia);
 			transferencia.setTaxa(taxa);
 			transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 			transferenciaRepository.save(transferencia);
@@ -107,6 +106,10 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 			throw new TaxaException("Problema ao calcular taxa - " + t.getMessage());
 		}
 
+	}
+	
+	public void agendarTaxa(Transferencia transferencia) {
+		transferenciaRepository.save(transferencia);
 	}
 
 	@Override
