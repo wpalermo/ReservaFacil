@@ -111,6 +111,9 @@ Criei uma classe de teste chamada *TaxaResourceTest* essa classe está comentada
 ### Postman
 No repositorio tem uma collection do postman para teste integrado do projeto. 
 
+#### Faltou
+Sempre que o junit é executado ele inicia um spring boot, mas como está configurado para procurar o Eureka ele vai retornar varias exceções no log, todas do Eureka, mas mesmo assim os testes sao realizados. Ficou faltando descobrir como subir os testes sem executar o Eureka ou mockando ele.
+
 ## Rodando o projeto
 
 Para subir toda a arquitetura a única requisição é que o **Eureka** deve ser o primeiro a estar rodando assim todos as outras aplicações conseguirão se registrar no serviço de service-discovery sem problemas. 
