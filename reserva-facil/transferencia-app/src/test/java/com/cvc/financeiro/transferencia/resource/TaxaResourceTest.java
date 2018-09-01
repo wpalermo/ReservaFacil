@@ -24,10 +24,11 @@ public class TaxaResourceTest {
 		
 		TaxaRequest request = new TaxaRequest();
 		request.setDataAgendamento(LocalDate.now());
-		request.setDataTransferencia(LocalDate.now());
+		request.setDataTransferencia(LocalDate.now().plusDays(45));
 		request.setValor(2000f);
 		
-		Float f = resource.post(request).getValor();
+		
+		Float f = resource.post(request).getBody().getValor();
 		Assert.notNull(f, "");
 	}
 

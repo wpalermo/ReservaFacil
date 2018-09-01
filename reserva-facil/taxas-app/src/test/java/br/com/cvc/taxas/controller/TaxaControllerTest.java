@@ -29,6 +29,8 @@ public class TaxaControllerTest {
 	
 	private RestTemplate restTemplate;
 	
+	
+	
 	@Before
 	public void setUp() {
 		restTemplate = new RestTemplate();
@@ -43,6 +45,8 @@ public class TaxaControllerTest {
 		taxaRequest.setDataAgendamento(LocalDate.now());
 		taxaRequest.setDataTransferencia(LocalDate.now());
 		taxaRequest.setValor(2000f);
+		
+		
 		
 		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
 		ResponseEntity<TaxaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TaxaResponse.class);
@@ -128,6 +132,26 @@ public class TaxaControllerTest {
 		ResponseEntity<TaxaResponse> response = restTemplate.postForEntity(BASE_PATH, request, TaxaResponse.class);
 		
 		Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+		
+	}
+	
+	@Test
+	public void testTipoC40Exception() throws URISyntaxException {
+		
+		TaxaRequest taxaRequest = new TaxaRequest();
+		
+		taxaRequest.setDataAgendamento(LocalDate.now());
+		taxaRequest.setDataTransferencia(LocalDate.now().plusDays(45));
+		taxaRequest.setValor(2000f);
+		
+		RequestEntity<TaxaRequest> request = new RequestEntity<TaxaRequest>(taxaRequest, HttpMethod.GET, new URI(BASE_PATH));
+		ResponseEntity<TaxaResponse> response = null;
+		try {
+			response = restTemplate.postForEntity(BASE_PATH, request, TaxaResponse.class);
+		}catch(Exception e) {
+			e.getMessage();
+			Assert.assertEquals("417 null", e.getMessage());
+		}
 		
 	}
 	

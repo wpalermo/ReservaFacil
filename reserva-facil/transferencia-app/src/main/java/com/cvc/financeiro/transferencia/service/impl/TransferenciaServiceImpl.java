@@ -79,20 +79,20 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	@Override
 	public void agendarTransferencia(Transferencia transferencia) {
 
+		//Valida as datas de agendamento e transferencia
+		if(transferencia.getDataAgendamento().isBefore(LocalDate.now())) {
+			transferencia.setStatus(StatusTransferenciaEnum.DATA_AGENDAMENTO_INVALIDA);
+			transferenciaRepository.save(transferencia);
+			throw new TransferenciaException("Data de agendamento invalida");
+		}
+		
+		if(transferencia.getDataTransferencia().isBefore(LocalDate.now())) {
+			transferencia.setStatus(StatusTransferenciaEnum.DATA_TRANSACAO_INVALIDA);
+			transferenciaRepository.save(transferencia);
+			throw new TransferenciaException("Data de transferencia invalida");
+		}
+		
 		try {
-			//Valida as datas de agendamento e transferencia
-			if(transferencia.getDataAgendamento().isBefore(LocalDate.now())) {
-				transferencia.setStatus(StatusTransferenciaEnum.DATA_AGENDAMENTO_INVALIDA);
-				transferenciaRepository.save(transferencia);
-				throw new TransferenciaException("Data de agendamento invalida");
-			}
-			
-			if(transferencia.getDataTransferencia().isBefore(LocalDate.now())) {
-				transferencia.setStatus(StatusTransferenciaEnum.DATA_TRANSACAO_INVALIDA);
-				transferenciaRepository.save(transferencia);
-				throw new TransferenciaException("Data de transferencia invalida");
-			}
-			
 			//Chama o servico de taxa e atualiza a taxa da transferencia
 			taxaService.calcularTaxa(transferencia);
 

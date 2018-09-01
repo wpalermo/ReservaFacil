@@ -1,6 +1,7 @@
 package com.cvc.financeiro.transferencia.resource;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,6 +24,6 @@ public interface TaxaResource {
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST, value="taxa")
-	TaxaResponse post(TaxaRequest request);
+	ResponseEntity<TaxaResponse> post(TaxaRequest request);
 	
 }
