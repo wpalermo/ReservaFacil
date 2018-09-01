@@ -36,14 +36,19 @@ Caso esse serviço esteja offline ou demore muito para responder, essa chamada s
 
 As transferencias na data correta e no status *AGUARDANDO_TRANSFERENCIA* são feitas quando é executado o scheduler do spring (explicado mais a baixo), assim caso a tranferência seja feita com sucesso seu status é alterado para *SUCESSO*. E caso o status seja *AGUARDANDO_CALCULO_TAXA* é executado outro servico do scheduler que chama novamento o serviço de calculo de taxa  e caso seja feito com sucesso, seu status é alterado para *AGUARDANDO_TRANSFERENCIA* assim entrando para ser feita a transferencia
 
+Para a diferenciação de erros, os serviços tanto de taxa como de transferencia retornam o status code 417 (EXPECTATION_FAILED) no caso de erro de negócio. No fluxo, quando uma requisição do serviço de taxa retorna o status code 417 a transferencia é atualizada para o status *TAXA_NAO_CALCULADA*.
+
 O caminho feliz de uma trasferencia seria
-> AGUARDANDO_TRANSFERENCIA -> SUCESSO
-> ou
-> AGUARDANDO_CALCULO_TAXA -> AGUARDANDO_TRANSFERENCIA -> SUCESSO
-
-#### O que falta.?
-A aplicação de transferencia não está capturando o status code do servico de taxa, assim mesmo que nao seja possível calcular a taxa ele sempre irá reenviar. 
-
+```mermaid
+graph LR
+A[AGUARDANDO_TRANSFERENCIA] -- taxa request --> B[SUCESSO]
+```
+OU
+```mermaid
+graph LR
+A[AGUARDANDO_CALCULO_TAXA] -- taxa request --> B[AGUARDANDO_TRANSFERENCIA]
+B -- taxa request--> C[SUCESSO]
+```
 
 ### Spring Boot
 Foi usado o spring boot para rodar a aplicação na web com microserviços, no controller da aplicação temos um serviço post que recebe uma transferencia e um get que retorna uma lista com todas as transferencias.
@@ -85,14 +90,12 @@ O Zuul não tem nenhuma função na implementação, ele é um gateway que combi
 
 Assim como Eureka + Feing, o combo Eureka + Zuul também implementa automaticamente o Ribbon e consegue fazer o load balance das transações.
 
-### Spring schedule
-Por que spring schedule e não **spring batch**?
-
-O Spring batch seria mais adequado para a situação separando o processamento batch da aplicação microserviço, melhorando seu desempenho e desacoplando essa função das de serviço. Spring batch não foi usado simplismente pois não consegui acessar o banco de dados em memória dos serviços.
 
 ### HystrixDashboard
 Assim como Zuul e Eureka, não é uma implementação e nesse caso nem de um arquivo properities precisamos para rodar, coloquei no repositório apenas para caso de curiosidade. Ele mostra a "saude"dos micro-serviços implementados do o hystrix, mostrando a quantidade de requisição, se o circuito está fechado, etc... 
 Para usá-lo é so rodar o projeto do HystrixDashboard e colocar o endereço http:// endereco_do_zuul / hystrix.stream
+
+
 
 ## Testes
 
@@ -122,3 +125,6 @@ A partir daí a ordem de subida das aplicações é indiferente, o Zuul pode ou 
 
 #### Pontos de atenção
 Todas as aplicações tem as portas ja definidas no arquivo aplication.yml e todos devem estar com a configuração do Eureka em seu arquivo.
+
+
+
