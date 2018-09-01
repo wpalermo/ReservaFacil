@@ -115,4 +115,10 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 		transferencia.setStatus(status);
 		transferenciaRepository.save(transferencia);
 	}
+
+	@Override
+	public void recalcularTaxas() {
+		List<Transferencia> transferencias = transferenciaRepository.findByDataTransferenciaAndStatus(LocalDate.now(), StatusTransferenciaEnum.AGUARDANDO_CALCULO_TAXA);
+		transferencias.forEach(taxaService::calcularTaxa);
+	}
 }

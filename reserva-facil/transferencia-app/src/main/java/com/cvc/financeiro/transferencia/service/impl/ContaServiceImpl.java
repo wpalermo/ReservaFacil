@@ -1,5 +1,6 @@
 package com.cvc.financeiro.transferencia.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cvc.financeiro.transferencia.entities.Conta;
 import com.cvc.financeiro.transferencia.repository.ContaRepository;
 import com.cvc.financeiro.transferencia.service.ContaService;
+import com.google.common.collect.Lists;
 
 @Service
 public class ContaServiceImpl implements ContaService {
@@ -33,6 +35,16 @@ public class ContaServiceImpl implements ContaService {
 	@Override
 	public void atualizaConta(Conta conta) {
 		contaRepository.save(conta);
+	}
+
+	@Override
+	public void cadastraConta(Conta conta) {
+		contaRepository.save(conta);
+	}
+
+	@Override
+	public List<Conta> buscarTodasContas() {
+		return Lists.newArrayList(contaRepository.findAll());
 	}
 
 }

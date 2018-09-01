@@ -14,6 +14,9 @@ import com.cvc.financeiro.transferencia.response.TaxaResponse;
 import com.cvc.financeiro.transferencia.service.TaxaService;
 import com.cvc.financeiro.transferencia.service.TransferenciaService;
 
+import rx.Scheduler;
+import rx.schedulers.Schedulers;
+
 @Service
 public class TaxaServiceImpl implements TaxaService {
 	
@@ -30,18 +33,12 @@ public class TaxaServiceImpl implements TaxaService {
 	
 	public void calcularTaxa(Transferencia transferencia) {
 		
-		TaxaRequest request = new TaxaRequest();
-		
-		request.setDataAgendamento(transferencia.getDataAgendamento());
-		request.setDataTransferencia(transferencia.getDataTransferencia());
-		request.setValor(transferencia.getValor());
-		
 		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, transferencia);
 		
 		//Executa a chama do servico usando ReactiveX e hystrix para o fallback
 		taxaHttpRequest.toObservable()
+					   .subscribeOn(Schedulers.io())
 					   .subscribe(returned -> transferenciaService.atualizarTaxa(returned));  
-							   	  
 		
 	}
 

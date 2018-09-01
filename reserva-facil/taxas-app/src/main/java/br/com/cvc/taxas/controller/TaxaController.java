@@ -24,34 +24,6 @@ public class TaxaController {
 	@Autowired
 	private TaxaService taxaService;
 	
-	@RequestMapping(method = RequestMethod.GET, produces = { "application/json" })
-	@ResponseStatus(value = HttpStatus.OK)
-	public ResponseEntity<TaxaResponse> get(RequestEntity<TaxaRequest> request) {
-		return null;
-
-	}
-
-	@RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-	@ResponseStatus(value = HttpStatus.OK)
-	@ResponseBody
-	public ResponseEntity<String> put(Integer id, RequestEntity<String> request) {
-		return null;
-	}
-	
-	@RequestMapping(method = RequestMethod.PATCH)
-	@ResponseStatus(value = HttpStatus.OK)
-	@ResponseBody
-	public ResponseEntity<TaxaResponse> patch(RequestEntity<TaxaRequest> request) {
-		TaxaResponse response = new TaxaResponse();
-		response.setValor(taxaService.calcularTaxa(request.getBody()));
-		
-		return new ResponseEntity<>(response, HttpStatus.OK);	
-		
-	}
-	
-	
-
-
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
 	@ResponseBody
@@ -61,6 +33,29 @@ public class TaxaController {
 		
 		return new ResponseEntity<>(response, HttpStatus.OK);	
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, produces = { "application/json" })
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	public ResponseEntity<TaxaResponse> get(RequestEntity<TaxaRequest> request) {
+		return null;
+
+	}
+
+	@RequestMapping(method = RequestMethod.PUT, path = "/{id}")
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	@ResponseBody
+	public ResponseEntity<String> put(Integer id, RequestEntity<String> request) {
+		return null;
+	}
+	
+	@RequestMapping(method = RequestMethod.PATCH)
+	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
+	@ResponseBody
+	public ResponseEntity<TaxaResponse> patch(RequestEntity<TaxaRequest> request) {
+		return null;
+		
+	}
+
 	
 	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
 	@ResponseStatus(value = HttpStatus.METHOD_NOT_ALLOWED)
