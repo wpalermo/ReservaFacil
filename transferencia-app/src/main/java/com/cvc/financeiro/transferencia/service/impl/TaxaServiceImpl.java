@@ -9,17 +9,18 @@ import com.cvc.financeiro.transferencia.exception.TaxaException;
 import com.cvc.financeiro.transferencia.service.TaxaService;
 import com.cvc.financeiro.transferencia.utils.TransaferenciaUtils;
 
+
 @Service
 public class TaxaServiceImpl implements TaxaService {
 
 	@Override
-	public Float calcularTaxa(LocalDate dataTransaferencia, LocalDate dataAgendamento, Float valor) {
+	public Float calcularTaxa(LocalDate dataTransferencia, LocalDate dataAgendamento, Float valor) {
 		//Operacao TIPO A
-		if(dataTransaferencia.isEqual(dataAgendamento))
+		if(dataTransferencia.isEqual(dataAgendamento))
 			return Float.valueOf(3) + (valor * (3/100f));
 		
 		//Operacao TIPO B
-		Long diasDiferenca = ChronoUnit.DAYS.between(dataTransaferencia, dataAgendamento);
+		Long diasDiferenca = ChronoUnit.DAYS.between(dataAgendamento, dataTransferencia);
 		
 		if(diasDiferenca < 0)
 			throw new TaxaException("Data de agendamento invalida");
@@ -41,6 +42,7 @@ public class TaxaServiceImpl implements TaxaService {
 			throw new TaxaException("Não foi possivel calcular taxa");
 		
 	}
+
 
 	
 }
