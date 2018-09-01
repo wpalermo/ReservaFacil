@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.cvc.financeiro.transferencia.entities.Transferencia;
 import com.cvc.financeiro.transferencia.exception.TaxaException;
 import com.cvc.financeiro.transferencia.exception.TransferenciaException;
 import com.cvc.financeiro.transferencia.repository.TransferenciaRepository;
+import com.cvc.financeiro.transferencia.scheduled.ScheduledTasks;
 import com.cvc.financeiro.transferencia.service.ContaService;
 import com.cvc.financeiro.transferencia.service.TaxaService;
 import com.cvc.financeiro.transferencia.service.TransferenciaService;
@@ -29,6 +32,9 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 
 	@Autowired
 	private TransferenciaRepository transferenciaRepository;
+	
+    private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
+
 
 	
 	@Override
@@ -39,10 +45,18 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	@Override
 	public void realizarTransferencia() {
 
+		
+		
 		//Busca as transferencias que deve ser feitas
 		List<Transferencia> transferencias = transferenciaRepository.findByDataTransferenciaAndStatus(LocalDate.now(), StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 
+		
+		
 		for (Transferencia transferencia : transferencias) {
+			
+			log.info("Inciando transferencia");
+			log.info("De " + transferencia.getContaOrigem()  + " para " + transferencia.getContaDestino());
+			
 			// Valida se contas existem na base.
 			if (!contaService.isValida(transferencia.getContaDestino())) {
 				this.atualizarStatus(transferencia, StatusTransferenciaEnum.CONTA_DESTINO_INVALIDA);
@@ -79,6 +93,9 @@ public class TransferenciaServiceImpl implements TransferenciaService {
 	@Override
 	public void agendarTransferencia(Transferencia transferencia) {
 
+		log.info("Inciando agendamento");
+
+		
 		//Valida as datas de agendamento e transferencia
 		if(transferencia.getDataAgendamento().isBefore(LocalDate.now())) {
 			transferencia.setStatus(StatusTransferenciaEnum.DATA_AGENDAMENTO_INVALIDA);
