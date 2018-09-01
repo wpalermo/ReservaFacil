@@ -4,15 +4,19 @@ A implementação do projeto foi feita toda em Java10 porém não foi usada nenh
 
 Como houve tempo para incrementar um pouco o projeto, fiz uma implementação em uma arquitetura de micro-serviços, a base desse projeto é a single_branch e as regras de negócio são exatamente as mesmas, com a diferença que o serviço de taxas foi separado em uma outra aplicação. 
 
-Aqui no repositório podemos ver mais ou menos como foi a evolução do desenvolvimento do projeto.
+Decidi fazer essa arquitetura pois ja havia estudado e implementado ela anteriormente, então tive o trabalho de aplicar essa arquitetura no problema que foi passado. No meu git tem um repositório chamado socio-torcedor irão encontrar algo bem parecido. O que eu tentei fazer diferente para esse que ainda não tinha feito, foi a chamada de serviço sendo feita de maneira assincrona e totalmento orientada a função.
 
-* A branch  **feature/single_service** essa foi a primeira versão feita em um único projeto, nela foi definida toda a logica de negócio e está lógica está na **master** e a branch **feature/micro_service**. 
+Aqui nesse repositório podemos ver mais ou menos como foi a evolução do desenvolvimento do projeto.
+
+* A branch  **feature/single_service** essa foi a primeira versão feita em um único projeto, nela tem exatemento o que foi pedido e onde foi definida toda a logica de negócio e está lógica está na **master** e a branch **feature/micro_service**. 
 
 * A branch **feature/micro_service** é a single service, porém com o serviço de taxa implementado em uma aplicação a parte e é acessada via chamada de servico rest. 
 
 * A branch  **master** é a mesma versão que está na branch **feature/micro_service_async**  essa branch é uma "evloução"da de micro_service, fazendo a chamada do servico de taxas de maneira assincrona e orientada a função.
 
-## Branch single_service
+A branch **develop** usei para deixar sempre uma versão que funciona, sempre que rodo e acho que a versão está de certa forma estável comito na develop depois volto pra branch e continuo desenvolvendo as outras funcionalidades.
+
+### Frameworks
 
 No startup projeto é adicionado ao banco 5 contas que são usadas para realizar as transferências, a inclusão delas no banco é feita na classe *DataLoader* que implementa um *ApplicationRunner* e sempre roda uma vez antes do sistema estar pronto par uso.
 
@@ -28,7 +32,9 @@ Nessa implementação foram usados os seguintes frameworks sendo os 5 ultimos do
 * Zuul
 * FeignClient
 
-### Fluxo da transferencia
+
+
+## Fluxo da transferencia
 
 Recebida a transferencia ele agendará essa transferencia, começará chamando o serviço de taxas (ReactiveX + Hystrix) que calculará a taxa da transação de acordo com a data de agendamento e a data da transação, retornada a taxa, o serviço armazena essa transação no banco de dados (em memória) usando spring data com o status de *AGUARDANDO_TRANSFERENCIA*. 
 
@@ -98,15 +104,21 @@ Para usá-lo é so rodar o projeto do HystrixDashboard e colocar o endereço htt
 
 ### Taxa-app
 Todos os testes feitos usando junit. Por ser um serviço mais simples, não foi necessário nem o uso de mocks.
+Porem é nessa aplicação que estão os calculos das taxas, todos os testes foram feitos via junit, simulando as datas e verificando a taxa de retorno.
 
 ### Transferencia-app
 As classes de teste foram criadas para testar as principais classes de implementação. 
-Para os testes de transferencia e taxa foi usado o *Mockito* esses testes foram necessários para garantir que o fluxo estava funcionando antes de colocar o sistema na arquitetura netflix, pois o eureka e principalmente o zuul tem timeouts bastante baixos e ficam gerando erro durante um processo de debug dificultando bastante um teste via requisição normal.
+Para os testes de transferencia e taxa foi usado o *Mockito* esses testes foram necessários para garantir que o fluxo e a logica de negócio estava funcionando antes de colocar o sistema na arquitetura netflix, pois o eureka e principalmente o zuul tem timeouts bastante baixos e ficam gerando erro durante um processo de debug dificultando bastante um teste via requisição normal.
 
 Criei uma classe de teste chamada *TaxaResourceTest* essa classe está comentada, pois serve basicamente para testar a chamada do serviço de taxas, logo se for deixada para ser compilada, um scan do sonar provavelmente irá barrar o deploy do projeto.   
 
 ### Postman
 No repositorio tem uma collection do postman para teste integrado do projeto. 
+
+#### O que faltou?
+Sempre que o junit é executado ele inicia um spring boot, mas como está configurado para procurar o Eureka ele vai retornar varias exceções no log, todas do Eureka, mas mesmo assim os testes sao realizados. Ficou faltando descobrir como subir os testes sem executar o Eureka ou mockando ele.
+
+Algumas exceções ainda estão muito genéricas e não devem ser assim, não consegui descobrir como capturar uma exeção mais específica a partir do retorno do response entity.
 
 ## Rodando o projeto
 
@@ -120,5 +132,15 @@ A partir daí a ordem de subida das aplicações é indiferente, o Zuul pode ou 
 > Chamando servico com Zuul
 > http://localhost:8080/transferencia-app/transferencia
 
+As portas configuradas sao: 
+* 8082 -> taxa app
+* 8083 -> transferencia-app
+* 8080 -> Zuul
+* 8761 -> Eureka (porta padrão)
+
 #### Pontos de atenção
+<<<<<<< Updated upstream
 Todas as aplicações tem as portas ja definidas no arquivo aplication.yml e todos devem estar com a configuração do Eureka em seu arquivo.
+=======
+Todas as aplicações tem as portas ja definidas no arquivo aplication.yml e todos devem estar com a configuração do Eureka em seu arquivo.
+>>>>>>> Stashed changes
