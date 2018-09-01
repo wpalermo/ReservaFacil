@@ -60,21 +60,17 @@ public class TransferenciaController {
 	@ResponseBody
 	public ResponseEntity<TransferenciaResponse> post(RequestEntity<TransferenciaRequest> request) {
 
-		Transferencia returnable;
-
 		try {
 
-			returnable = transferenciaService.realizarTransferencia(request.getBody().getTrasnferencia());
+			transferenciaService.agendarTransferencia(request.getBody().getTrasnferencia());
 
-			if (returnable != null)
-				return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 
 		} catch (TaxaException | TransferenciaException te) {
 			logger.error(te.getMessage());
 			return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
 		}
 
-		return new ResponseEntity<>(HttpStatus.OK);
 
 	}
 

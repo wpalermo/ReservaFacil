@@ -46,7 +46,7 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
 		transferencia.setDataAgendamento(LocalDate.now());
 		transferencia.setDataTransferencia(LocalDate.now());
@@ -69,10 +69,10 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(5L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(5L));
 		transferencia.setValor(2000f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
@@ -91,10 +91,10 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(15L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(15L));
 		transferencia.setValor(2000f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
@@ -113,10 +113,10 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(25L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(25L));
 		transferencia.setValor(2000f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
@@ -135,10 +135,10 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(35L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(35L));
 		transferencia.setValor(2000f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
@@ -157,10 +157,10 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
+		transferencia.setContaDestino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(41L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(41L));
 		transferencia.setValor(100001f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
@@ -179,10 +179,9 @@ public class TransferenciaControllerTest {
 		
 		Transferencia transferencia = new Transferencia();
 		
-		transferencia.setContaDestrino("1001");
 		transferencia.setContaOrigem("1000");
-		transferencia.setDataAgendamento(LocalDate.now().plusDays(41L));
-		transferencia.setDataTransferencia(LocalDate.now());
+		transferencia.setDataAgendamento(LocalDate.now());
+		transferencia.setDataTransferencia(LocalDate.now().plusDays(41L));
 		transferencia.setValor(2000f);
 		
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
