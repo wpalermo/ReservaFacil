@@ -122,9 +122,10 @@ No repositorio tem uma collection do postman para teste integrado do projeto.
 
 ## Rodando o projeto
 
-Para rodá-los, o transferencia-app e o taxa-app tem um arquivo *Application.java* na package "raiz". 
+Para rodá-los, o transferencia-app e o taxa-app tem um arquivo *Application.java* no package "raiz". 
 
 O Zuul tem o *GatewayApplicaction.java*
+
 O Eureka usa o *EurekaServiceApplication.java*
 
 
