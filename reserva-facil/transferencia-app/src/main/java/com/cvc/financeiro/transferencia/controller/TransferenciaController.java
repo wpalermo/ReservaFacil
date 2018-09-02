@@ -27,7 +27,7 @@ import com.cvc.financeiro.transferencia.service.TransferenciaService;
 @RequestMapping("/transferencia")
 public class TransferenciaController {
 
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+	protected final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	@Autowired
 	private TransferenciaService transferenciaService;
@@ -41,6 +41,8 @@ public class TransferenciaController {
 			response.setTransferencia(t);
 			return response;
 		}).collect(Collectors.toList());
+
+		log.info("Operacao GET realizada com sucesso");
 
 		return new ResponseEntity<>(returnable, HttpStatus.OK);
 	}
@@ -59,10 +61,11 @@ public class TransferenciaController {
 
 		try {
 			transferenciaService.agendarTransferencia(request.getBody().getTrasnferencia());
+			log.info("Operacao POST realizada com sucesso - conta origem: " + request.getBody().getTrasnferencia().getContaOrigem());
 			return new ResponseEntity<>(HttpStatus.OK);
 
 		} catch (TaxaException | TransferenciaException te) {
-			logger.error(te.getMessage());
+			log.error(te.getMessage());
 			return new ResponseEntity<>(new TransferenciaResponse(te.getMessage()), HttpStatus.EXPECTATION_FAILED);
 		} 
 	}

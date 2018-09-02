@@ -47,6 +47,7 @@ public class TaxaHttpRequest extends HystrixCommand<Transferencia> {
 			transferencia.setTaxa(response.getBody().getValor());
 			transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
 		}catch(Exception e) {
+			logger.error("Taxa não pode ser calculada, rever a transferencia");
 			transferencia.setStatus(StatusTransferenciaEnum.TAXA_NAO_CALCULADA);
 		}
 
@@ -55,7 +56,8 @@ public class TaxaHttpRequest extends HystrixCommand<Transferencia> {
 
 	@Override
 	protected Transferencia getFallback() {
-		logger.info("Problema ao acessar servico de campanhas TAXA-APP");
+		logger.warn("Problema ao acessar servico de campanhas TAXA-APP");
+		logger.warn("Transferencia salva para aguardar nova tentativa.");
 		transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_CALCULO_TAXA);
 		
 		return transferencia;

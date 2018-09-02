@@ -1,26 +1,25 @@
 package com.cvc.financeiro.transferencia.service.impl;
 
-import java.time.LocalDate;
-
-import org.jboss.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cvc.financeiro.transferencia.entities.Transferencia;
 import com.cvc.financeiro.transferencia.histrixCommands.TaxaHttpRequest;
-import com.cvc.financeiro.transferencia.request.TaxaRequest;
 import com.cvc.financeiro.transferencia.resource.TaxaResource;
 import com.cvc.financeiro.transferencia.response.TaxaResponse;
+import com.cvc.financeiro.transferencia.scheduled.ScheduledTasks;
 import com.cvc.financeiro.transferencia.service.TaxaService;
 import com.cvc.financeiro.transferencia.service.TransferenciaService;
 
-import rx.Scheduler;
 import rx.schedulers.Schedulers;
 
 @Service
 public class TaxaServiceImpl implements TaxaService {
 	
-	private final Logger logger = Logger.getLogger(this.getClass());
+    private static final Logger log = LoggerFactory.getLogger(ScheduledTasks.class);
+
 	
 	@Autowired
 	private TaxaResource taxaResource;
@@ -28,10 +27,10 @@ public class TaxaServiceImpl implements TaxaService {
 	@Autowired
 	private TransferenciaService transferenciaService;
 	
-	private TaxaResponse response;
-
 	
 	public void calcularTaxa(Transferencia transferencia) {
+		
+		log.info("Iniciando servico de calculo de taxa");
 		
 		TaxaHttpRequest taxaHttpRequest = new TaxaHttpRequest(taxaResource, transferencia);
 		
