@@ -25,9 +25,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"trasnferencia\" : {\n\t\t\"contaOrigem\": \"1000\",\n\t\t\"contaDestino\": \"1001\",\n\t\t\"valor\": 2000.00,\n\t\t\"dataTransferencia\": \"30/08/2018\",\n\t\t\"dataAgendamento\": \"30/08/2018\"\n\t}\n}"
+							"raw": "{\n  \"trasnferencia\" : {\n    \"contaOrigem\": \"1000\",\n    \"contaDestino\": \"1001\",\n    \"valor\": 2000.00,\n    \"dataTransferencia\": \"31/08/2018\",\n    \"dataAgendamento\": \"31/08/2018\"\n  }\n}"
 						},
-						"description": ""
+						"description": null
 					},
 					"response": []
 				},
@@ -38,7 +38,37 @@
 						"method": "GET",
 						"header": [],
 						"body": {},
-						"description": ""
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "conta-post",
+					"request": {
+						"url": "http://localhost:8083/conta",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n  \"conta\" : \"10003\",\n  \"nomeCliente\": \"Luke Skywalker\",\n  \"saldo\": \"1233432\"\n  \n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "conta",
+					"request": {
+						"url": "http://localhost:8083/conta",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
 					},
 					"response": []
 				}
@@ -51,7 +81,7 @@
 				{
 					"name": "transferenciaPost",
 					"request": {
-						"url": "http://localhost:8083/transferencia",
+						"url": "http://localhost:8080/transferencia-app/transferencia",
 						"method": "POST",
 						"header": [
 							{
@@ -62,20 +92,50 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"trasnferencia\" : {\n\t\t\"contaOrigem\": \"1000\",\n\t\t\"contaDestino\": \"1001\",\n\t\t\"valor\": 2000.00,\n\t\t\"dataTransferencia\": \"30/08/2018\",\n\t\t\"dataAgendamento\": \"30/08/2018\"\n\t}\n}"
+							"raw": "{\n  \"trasnferencia\" : {\n    \"contaOrigem\": \"1000\",\n    \"contaDestino\": \"1001\",\n    \"valor\": 2000.00,\n    \"dataTransferencia\": \"31/08/2018\",\n    \"dataAgendamento\": \"31/08/2018\"\n  }\n}"
 						},
-						"description": ""
+						"description": null
 					},
 					"response": []
 				},
 				{
 					"name": "transferenciaGet",
 					"request": {
-						"url": "http://localhost:8083/transferencia",
+						"url": "http://localhost:8080/transferencia-app/transferencia",
 						"method": "GET",
 						"header": [],
 						"body": {},
-						"description": ""
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "conta-post copy",
+					"request": {
+						"url": "http://localhost:8080/conta",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \n  \"conta\" : \"10003\",\n  \"nomeCliente\": \"Luke Skywalker\",\n  \"saldo\": \"1233432\"\n  \n}"
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "conta copy",
+					"request": {
+						"url": "http://localhost:8080/conta",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": null
 					},
 					"response": []
 				}
