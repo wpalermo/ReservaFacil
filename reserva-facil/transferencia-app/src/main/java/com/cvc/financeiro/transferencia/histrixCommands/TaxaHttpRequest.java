@@ -1,9 +1,11 @@
 package com.cvc.financeiro.transferencia.histrixCommands;
 
+import org.apache.http.HttpException;
 import org.jboss.logging.Logger;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.cvc.financeiro.transferencia.entities.Transferencia;
-import com.cvc.financeiro.transferencia.repository.TransferenciaRepository;
 import com.cvc.financeiro.transferencia.request.TaxaRequest;
 import com.cvc.financeiro.transferencia.resource.TaxaResource;
 import com.cvc.financeiro.transferencia.response.TaxaResponse;
@@ -15,11 +17,12 @@ public class TaxaHttpRequest extends HystrixCommand<Transferencia> {
 
 	private Logger logger = Logger.getLogger(this.getClass());
 	
+	
 
 
 	private TaxaResource taxaResource;
 	private TaxaRequest taxaRequest;
-	private TaxaResponse response;
+	private ResponseEntity<TaxaResponse> response;
 	private Transferencia transferencia;
 	
 
@@ -39,16 +42,24 @@ public class TaxaHttpRequest extends HystrixCommand<Transferencia> {
 	@Override
 	protected Transferencia run() throws Exception {
 		logger.info("Fazendo requisicao para TAXA-APP");
-		response = taxaResource.post(taxaRequest);
-		transferencia.setTaxa(response.getValor());
-		transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
+		try {
+			response = taxaResource.post(taxaRequest);
+			transferencia.setTaxa(response.getBody().getValor());
+			transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_TRANSFERENCIA);
+		}catch(Exception e) {
+			logger.error("Taxa não pode ser calculada, rever a transferencia");
+			transferencia.setStatus(StatusTransferenciaEnum.TAXA_NAO_CALCULADA);
+		}
+
 		return transferencia;
 	}
 
 	@Override
 	protected Transferencia getFallback() {
-		logger.info("Problema ao acessar servico de campanhas TAXA-APP");
+		logger.warn("Problema ao acessar servico de campanhas TAXA-APP");
+		logger.warn("Transferencia salva para aguardar nova tentativa.");
 		transferencia.setStatus(StatusTransferenciaEnum.AGUARDANDO_CALCULO_TAXA);
+		
 		return transferencia;
 	}
 

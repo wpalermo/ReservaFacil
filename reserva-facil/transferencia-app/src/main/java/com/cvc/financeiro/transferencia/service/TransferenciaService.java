@@ -23,6 +23,8 @@ public interface TransferenciaService {
 	void realizarTransferencia();
 	
 	
+	
+	
 	/**
 	 * Agenda a transferencia. Usa o servico de taxa para setar o valor da taxa.
 	 * @param transferencia
@@ -39,6 +41,12 @@ public interface TransferenciaService {
 	void atualizarStatus(Transferencia transferencia, StatusTransferenciaEnum status);
 
 	void atualizarTaxa(Transferencia transferencia);
+	
+	
+	/**
+	 * Busca as transferencias com status AGUARDANDO_CALCULO_TAXA e reenvia para o servico de calculo de taxas
+	 */
+	void recalcularTaxas();
 
 	
 }

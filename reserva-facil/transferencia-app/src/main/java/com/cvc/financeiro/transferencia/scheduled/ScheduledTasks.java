@@ -26,4 +26,12 @@ public class ScheduledTasks {
     	log.info("Iniciando tarfefa agendada - REALIZAR TRANSFERENCIA {} ", LocalDate.now());
         transferenciaService.realizarTransferencia();
     }
+    
+    
+    
+    @Scheduled(cron = "1 * * * * *")
+    public void atualizaTaxa() {
+    	log.info("Iniciando tarfefa agendada - BUSCA DE TAXA {} ", LocalDate.now());
+    	transferenciaService.recalcularTaxas();
+    }
 }

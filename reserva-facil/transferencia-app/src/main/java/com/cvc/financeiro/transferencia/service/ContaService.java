@@ -23,10 +23,23 @@ public interface ContaService {
 	Conta buscarConta(String conta);
 	
 	/**
+	 * Busca uma conta
+	 * @param String conta
+	 * @return Conta
+	 */
+	List<Conta> buscarTodasContas();
+	
+	/**
 	 * Busca uma conta e verifica se é valida ou nao
 	 * @param conta
 	 * @return
 	 */
 	boolean isValida(String conta);
+	
+	/**
+	 * Cadastra uma nova conta (apenas para teste 'integrado')
+	 * @param conta
+	 */
+	void cadastraConta(Conta conta);
 
 }
