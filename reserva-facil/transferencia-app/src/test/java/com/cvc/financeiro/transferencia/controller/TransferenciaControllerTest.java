@@ -65,7 +65,7 @@ public class TransferenciaControllerTest {
 		transferencia.setValor(2000f);
 
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
-		transferenciaRequest.setTrasnferencia(transferencia);
+		transferenciaRequest.setTransferencia(transferencia);
 
 		Mockito.doNothing().when(transferenciaService).agendarTransferencia(transferencia);
 
@@ -88,7 +88,7 @@ public class TransferenciaControllerTest {
 		transferencia.setValor(2000f);
 
 		TransferenciaRequest transferenciaRequest = new TransferenciaRequest();
-		transferenciaRequest.setTrasnferencia(transferencia);
+		transferenciaRequest.setTransferencia(transferencia);
 
 		Mockito.doThrow(TaxaException.class).when(transferenciaService).agendarTransferencia(transferencia);
 

@@ -60,8 +60,8 @@ public class TransferenciaController {
 	public ResponseEntity<TransferenciaResponse> post(RequestEntity<TransferenciaRequest> request) {
 
 		try {
-			transferenciaService.agendarTransferencia(request.getBody().getTrasnferencia());
-			log.info("Operacao POST realizada com sucesso - conta origem: " + request.getBody().getTrasnferencia().getContaOrigem());
+			transferenciaService.agendarTransferencia(request.getBody().getTransferencia());
+			log.info("Operacao POST realizada com sucesso - conta origem: " + request.getBody().getTransferencia().getContaOrigem());
 			return new ResponseEntity<>(HttpStatus.OK);
 
 		} catch (TaxaException | TransferenciaException te) {

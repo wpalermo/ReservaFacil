@@ -4,14 +4,14 @@ import com.cvc.financeiro.transferencia.entities.Transferencia;
 
 public class TransferenciaRequest {
 	
-	private Transferencia trasnferencia;
+	private Transferencia transferencia;
 
-	public Transferencia getTrasnferencia() {
-		return trasnferencia;
+	public Transferencia getTransferencia() {
+		return transferencia;
 	}
 
-	public void setTrasnferencia(Transferencia trasnferencia) {
-		this.trasnferencia = trasnferencia;
+	public void setTransferencia(Transferencia transferencia) {
+		this.transferencia = transferencia;
 	}
 
 }
