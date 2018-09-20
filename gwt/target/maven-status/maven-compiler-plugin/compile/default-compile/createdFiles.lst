@@ -1,0 +1,11 @@
+com/mycompany/mywebapp/shared/TransferenciaResponse.class
+com/mycompany/mywebapp/shared/FieldVerifier.class
+com/mycompany/mywebapp/client/MyWebApp$1MyHandler$1.class
+com/mycompany/mywebapp/shared/TransferenciaRequest.class
+com/mycompany/mywebapp/shared/Transferencia.class
+com/mycompany/mywebapp/client/MyWebApp$1.class
+com/mycompany/mywebapp/client/MyWebApp.class
+com/mycompany/mywebapp/client/GreetingServiceAsync.class
+com/mycompany/mywebapp/server/GreetingServiceImpl.class
+com/mycompany/mywebapp/client/MyWebApp$1MyHandler.class
+com/mycompany/mywebapp/client/GreetingService.class
