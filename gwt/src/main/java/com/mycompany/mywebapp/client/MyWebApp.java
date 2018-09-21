@@ -2,19 +2,21 @@ package com.mycompany.mywebapp.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.*;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.datepicker.client.DateBox;
 import com.mycompany.mywebapp.shared.bean.Transferencia;
 import com.mycompany.mywebapp.shared.request.TransferenciaRequest;
 import com.mycompany.mywebapp.shared.request.TransferenciaResponse;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,6 +42,7 @@ public class MyWebApp implements EntryPoint {
     /**
      * This is the entry point method.
      */
+    @SuppressWarnings("Duplicates")
     public void onModuleLoad() {
         final Button sendButton = new Button("Transferir");
         final Button consultaButton = new Button("Consultar transferencias");
@@ -54,13 +57,58 @@ public class MyWebApp implements EntryPoint {
         final TextBox contaOrigemField = new TextBox();
         final Label contaOrigemLabel = new Label("Conta Origem");
 
+
+
+        contaOrigemField.addKeyUpHandler(new KeyUpHandler() {
+            @Override
+            public void onKeyUp(KeyUpEvent event) {
+                if(!contaOrigemField.getText().matches("[0-9]*")) {
+                    Window.alert("Caracter inválido " + contaOrigemField.getText());
+
+                    while(!contaOrigemField.getText().substring(contaOrigemField.getText().length()-1).matches("[0-9]*")){
+                        contaOrigemField.setText(contaOrigemField.getText().substring(0, contaOrigemField.getText().length()-1));
+                    }
+
+                }
+
+                if(contaOrigemField.getText().length() > 4){
+                    Window.alert("Quantidade de carcateres excedeu limite (Maximo 4)");
+                    contaOrigemField.setText(contaOrigemField.getText().substring(0, 4));
+                }
+
+            }
+        });
+
         final TextBox contaDestinoField = new TextBox();
+
+
+        contaDestinoField.addKeyUpHandler(new KeyUpHandler() {
+            @Override
+            public void onKeyUp(KeyUpEvent event) {
+                if(!contaDestinoField.getText().matches("[0-9]*")) {
+                    Window.alert("Caracter inválido " + contaDestinoField.getText());
+
+                    while(!contaDestinoField.getText().substring(contaDestinoField.getText().length()-1).matches("[0-9]*")){
+                        contaDestinoField.setText(contaDestinoField.getText().substring(0, contaDestinoField.getText().length()-1));
+                    }
+
+                }
+
+                if(contaDestinoField.getText().length() > 4){
+                    Window.alert("Quantidade de carcateres excedeu limite (Maximo 4)");
+                    contaDestinoField.setText(contaDestinoField.getText().substring(0, 4));
+                }
+
+            }
+        });
+
+
         final Label contaDestinoLabel = new Label("Conta Destino");
 
         final TextBox valorField = new TextBox();
         final Label valorLabel = new Label("Valor Transacao");
 
-        final TextBox dataTransferenciaField = new TextBox();
+        final DateBox dataTransferenciaField = new DateBox();
         final Label dataTransferenciaLabel = new Label("Data da transferencia");
 
 
@@ -118,11 +166,11 @@ public class MyWebApp implements EntryPoint {
                 transferencia.setValor(Float.valueOf(valor));
                 transferencia.setContaDestino(contaDestinoField.getText());
                 transferencia.setContaOrigem(contaOrigemField.getText());
-                transferencia.setDataTransferencia(dataTransferenciaField.getText());
 
                 DateTimeFormat format = DateTimeFormat.getFormat("dd/MM/yyyy");
 
 
+                transferencia.setDataTransferencia(format.format(dataTransferenciaField.getValue()));
                 transferencia.setDataAgendamento(format.format(new Date()));
 
                 TransferenciaRequest request = new TransferenciaRequest();
@@ -184,14 +232,14 @@ public class MyWebApp implements EntryPoint {
                         TextColumn<Transferencia> valorColumn = new TextColumn<Transferencia>() {
                             @Override
                             public String getValue(Transferencia object) {
-                                return object.getValor().toString();
+                                return "R$ " + object.getValor().toString();
                             }
                         };
 
                         TextColumn<Transferencia> taxaColumn = new TextColumn<Transferencia>() {
                             @Override
                             public String getValue(Transferencia object) {
-                                return object.getTaxa().toString();
+                                return "R$ " + object.getTaxa().toString();
                             }
                         };
 

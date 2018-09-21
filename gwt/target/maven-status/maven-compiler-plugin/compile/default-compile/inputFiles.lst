@@ -1,7 +1,8 @@
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java
 /home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java
-/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java
-/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java
-/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/Constants.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java
 /home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java
 /home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java
 /home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java
