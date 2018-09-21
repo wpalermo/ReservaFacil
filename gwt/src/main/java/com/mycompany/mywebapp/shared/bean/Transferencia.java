@@ -1,4 +1,4 @@
-package com.mycompany.mywebapp.shared;
+package com.mycompany.mywebapp.shared.bean;
 
 
 import java.io.Serializable;
@@ -18,6 +18,7 @@ public class Transferencia implements Serializable {
 
     private String dataAgendamento;
 
+    private String status;
 
     public Transferencia() {
 
@@ -69,5 +70,13 @@ public class Transferencia implements Serializable {
 
     public void setDataAgendamento(String dataAgendamento) {
         this.dataAgendamento = dataAgendamento;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -2,19 +2,16 @@ package com.mycompany.mywebapp.server;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.mycompany.mywebapp.client.TransferenciaService;
+import com.mycompany.mywebapp.shared.Constants;
 import com.mycompany.mywebapp.shared.FieldVerifier;
-import com.mycompany.mywebapp.shared.Transferencia;
-import com.mycompany.mywebapp.shared.TransferenciaRequest;
-import com.mycompany.mywebapp.shared.TransferenciaResponse;
+import com.mycompany.mywebapp.shared.request.TransferenciaRequest;
+import com.mycompany.mywebapp.shared.request.TransferenciaResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /**
  * The server-side implementation of the RPC service.
@@ -65,16 +62,11 @@ public class TransferenciaServiceImpl extends RemoteServiceServlet implements
 
     public void post(TransferenciaRequest request) {
 
-        System.out.println("post1");
         RestTemplate restTemplate = new RestTemplate();
 
         URI uri = null;
         try {
-            uri = new URI("http://localhost:8080/transferencia-app/transferencia");
-
-
-            logger.info(uri.getHost() + uri.getPath());
-
+            uri = new URI(Constants.TRANSFERENCIA_URI);
 
             ResponseEntity<TransferenciaResponse> response = restTemplate.postForEntity(uri, request, TransferenciaResponse.class);
 
@@ -82,31 +74,23 @@ public class TransferenciaServiceImpl extends RemoteServiceServlet implements
             e.printStackTrace();
         } catch (Exception ce) {
             ce.printStackTrace();
-            logger.severe("Não foi possivel conectar no servidor " + ce.getLocalizedMessage());
         }
 
-
-        System.out.println("post2");
 
     }
 
     @Override
     public TransferenciaResponse get() {
-        System.out.println("GET");
 
         URI uri = null;
         try {
-            uri = new URI("http://localhost:8080/transferencia-app/transferencia");
+            uri = new URI(Constants.TRANSFERENCIA_URI);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
 
-
         RestTemplate restTemplate = new RestTemplate();
         TransferenciaResponse response = restTemplate.getForObject(uri, TransferenciaResponse.class);
-
-
-
         return response;
     }
 }

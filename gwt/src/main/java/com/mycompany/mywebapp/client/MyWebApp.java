@@ -2,19 +2,20 @@ package com.mycompany.mywebapp.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.*;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Label;
-import com.mycompany.mywebapp.shared.Transferencia;
-import com.mycompany.mywebapp.shared.TransferenciaRequest;
-import com.mycompany.mywebapp.shared.TransferenciaResponse;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.TextBox;
+import com.mycompany.mywebapp.shared.bean.Transferencia;
+import com.mycompany.mywebapp.shared.request.TransferenciaRequest;
+import com.mycompany.mywebapp.shared.request.TransferenciaResponse;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -162,8 +163,6 @@ public class MyWebApp implements EntryPoint {
                     public void onSuccess(TransferenciaResponse result) {
 
                         response = result.getTransferencias();
-                        RootPanel.get("testLabelContainer").add(new Label(response.get(0).getContaOrigem()));
-
 
                         CellTable<Transferencia> table = new CellTable<Transferencia>();
 
@@ -174,7 +173,64 @@ public class MyWebApp implements EntryPoint {
                             }
                         };
 
+
+                        TextColumn<Transferencia> contaDestinoColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getContaDestino();
+                            }
+                        };
+
+                        TextColumn<Transferencia> valorColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getValor().toString();
+                            }
+                        };
+
+                        TextColumn<Transferencia> taxaColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getTaxa().toString();
+                            }
+                        };
+
+                        TextColumn<Transferencia> dataTransferenciaColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getDataTransferencia();
+                            }
+                        };
+
+                        TextColumn<Transferencia> dataAgendamentoColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getDataAgendamento();
+                            }
+                        };
+
+                        TextColumn<Transferencia> statusColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getStatus();
+                            }
+                        };
+
+
+
                         table.addColumn(contaOrigemColumn, "Conta Origem");
+                        table.addColumn(contaDestinoColumn, "Conta Destino");
+                        table.addColumn(valorColumn, "Valor Transferencia");
+                        table.addColumn(taxaColumn, "Valor Taxa");
+                        table.addColumn(dataTransferenciaColumn, "Data Transferencia");
+                        table.addColumn(dataAgendamentoColumn, "Data Agendamento");
+                        table.addColumn(statusColumn, "Status Transferencia");
+
+
+                        table.setRowCount(response.size());
+                        table.setRowData(0, response);
+
+                        RootPanel.get().clear();
                         RootPanel.get().add(table);
 
                     }

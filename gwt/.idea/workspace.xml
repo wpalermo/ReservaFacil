@@ -2,48 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="50aec370-5bb3-4ac9-9b08-f1f787a097a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/GreetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/GreetingServiceAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/GreetingServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/MyWebApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/MyWebApp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-1.0-SNAPSHOT/MyWebApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/gwt-1.0-SNAPSHOT/MyWebApp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/gwt-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70F729B" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70F932F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70FA226" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70FA39E" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F71155CA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F714AE5E" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76637DF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76B7081" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76ED0F3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F78224FA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F80B3D4A" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F815CCB6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81660CA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8198F62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81A2BDD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81C5E5A" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81D143C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8213384" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8262A8F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F82A8CA7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F83220E4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F833E46C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8373727" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F84E45BF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gwt-1.0-SNAPSHOT/mywebapp/D2069A43D11F77A3894B9549E0D4A81D.gwt.rpc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/controller/TransferenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/controller/TransferenciaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/response/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/response/TransferenciaResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/test/java/com/cvc/financeiro/transferencia/controller/TransferenciaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../reserva-facil/transferencia-app/src/test/java/com/cvc/financeiro/transferencia/controller/TransferenciaControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,15 +77,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="68" />
-          <entry key="java" value="1962" />
-          <entry key="xml" value="25" />
+          <entry key="java" value="3214" />
+          <entry key="txt" value="15" />
+          <entry key="xml" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="68" />
-          <entry key="JAVA" value="1962" />
-          <entry key="XML" value="25" />
+          <entry key="JAVA" value="3214" />
+          <entry key="PLAIN_TEXT" value="15" />
+          <entry key="XML" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -123,51 +95,58 @@
           <entry key="Messages" value="1" />
           <entry key="css" value="1" />
           <entry key="html" value="1" />
-          <entry key="java" value="5" />
-          <entry key="xml" value="1" />
+          <entry key="java" value="10" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="5" />
+          <entry key="JAVA" value="10" />
           <entry key="ResourceBundle" value="1" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="177" column="51" selection-start-line="177" selection-start-column="51" selection-end-line="177" selection-end-column="51" />
+            <state relative-caret-position="95">
+              <caret line="165" selection-start-line="165" selection-end-line="165" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3213#3214#0" expanded="true" />
                 <element signature="e#3269#3270#0" expanded="true" />
                 <element signature="e#4953#4968#0" expanded="true" />
                 <element signature="e#5939#5954#0" expanded="true" />
-                <element signature="e#5973#6239#0" expanded="true" />
-                <element signature="e#6238#6239#0" expanded="true" />
+                <element signature="e#6216#6482#0" expanded="true" />
+                <element signature="e#6481#6482#0" expanded="true" />
+                <element signature="e#6633#6900#0" expanded="true" />
+                <element signature="e#6899#6900#0" expanded="true" />
+                <element signature="e#7051#7322#0" expanded="true" />
+                <element signature="e#7321#7322#0" expanded="true" />
+                <element signature="e#7465#7735#0" expanded="true" />
+                <element signature="e#7734#7735#0" expanded="true" />
+                <element signature="e#7881#8153#0" expanded="true" />
+                <element signature="e#8152#8153#0" expanded="true" />
+                <element signature="e#8318#8588#0" expanded="true" />
+                <element signature="e#8587#8588#0" expanded="true" />
+                <element signature="e#8738#9008#0" expanded="true" />
+                <element signature="e#9007#9008#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/MyWebApp.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -175,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="109" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="15">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,10 +164,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#733#734#0" expanded="true" />
@@ -210,31 +198,51 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-servlet/2.8.0/gwt-servlet-2.8.0-sources.jar!/com/google/gwt/user/server/rpc/RemoteServiceServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="341" column="72" lean-forward="true" selection-start-line="341" selection-start-column="72" selection-end-line="341" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+            <state relative-caret-position="240">
+              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+                <element signature="e#1431#1432#0" expanded="true" />
+                <element signature="e#1460#1461#0" expanded="true" />
+                <element signature="e#1504#1505#0" expanded="true" />
+                <element signature="e#1540#1541#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="26">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -256,6 +264,7 @@
       <find>MyHandler</find>
       <find>greetingService</find>
       <find>greetingServicetra</find>
+      <find>MyWebApp</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -269,7 +278,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/RequestServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/MyWebApp.gwt.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/GreetingService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/GreetingServiceImpl.java" />
@@ -278,11 +286,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/handlers/TransferenciaHendler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/handlers/TransferenciaHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/MyWebApp.html" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Constants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java" />
       </list>
     </option>
   </component>
@@ -407,14 +421,11 @@
               <item name="gwt" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gwt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gwt" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="mycompany" type="462c0819:PsiDirectoryNode" />
+              <item name="mywebapp" type="462c0819:PsiDirectoryNode" />
+              <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gwt" type="b2602c69:ProjectViewProjectNode" />
@@ -433,7 +444,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537532548393" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537552814530" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs.protractor.protractor_package" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -446,6 +457,9 @@
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.mycompany.mywebapp.shared" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -461,14 +475,14 @@
     </option>
   </component>
   <component name="RunManager" selected="Remote.remote debug">
-    <configuration name="Unnamed" type="GWT.ConfigurationType" factoryName="GWT Configuration">
+    <configuration name="RUN" type="GWT.ConfigurationType" factoryName="GWT Configuration">
       <option name="RUN_PAGE" value="MyWebApp.html" />
       <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <option name="USE_SUPER_DEV_MODE" value="true" />
       <option name="WORKING_DIRECTORY" value="" />
       <module name="gwt" />
       <method v="2">
-        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="true" file="$MODULE_DIR$/pom.xml" goal="gwt:run" />
       </method>
     </configuration>
     <configuration default="true" type="GWT.ConfigurationType" factoryName="GWT Configuration">
@@ -501,7 +515,7 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="GWT Configuration.Unnamed" />
+      <item itemvalue="GWT Configuration.RUN" />
       <item itemvalue="Remote.remote debug" />
     </list>
   </component>
@@ -517,12 +531,12 @@
       <updated>1537360152843</updated>
       <workItem from="1537360156012" duration="19934000" />
       <workItem from="1537447841868" duration="9312000" />
-      <workItem from="1537470365366" duration="10420000" />
+      <workItem from="1537470365366" duration="22124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39666000" />
+    <option name="totallyTimeSpent" value="51370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -534,9 +548,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="123" width="1440" height="900" extended-state="7" />
+    <frame x="0" y="123" width="1440" height="900" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2625538" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2625538" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -547,12 +561,12 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928263" weight="0.39870968" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49928263" visible="true" weight="0.39870968" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32903227" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32903227" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32258064" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32258064" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50071734" side_tool="true" weight="0.39948454" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32903227" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3298969" />
@@ -599,15 +613,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java</url>
-          <line>109</line>
+          <line>93</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java</url>
-          <line>96</line>
+          <line>84</line>
           <properties />
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -678,13 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/com/mycompany/mywebapp/client/GreetingService.class" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -714,24 +727,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-          <folding>
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#527#528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/MyWebApp.gwt.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -755,14 +750,7 @@
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-servlet/2.8.0/gwt-servlet-2.8.0-sources.jar!/com/google/gwt/user/server/rpc/RemoteServiceServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="341" column="72" lean-forward="true" selection-start-line="341" selection-start-column="72" selection-end-line="341" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-servlet/2.8.0/gwt-servlet-2.8.0-sources.jar!/com/google/gwt/user/server/rpc/RPC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="586" selection-start-line="586" selection-end-line="586" />
+          <caret line="341" column="72" selection-start-line="341" selection-start-column="72" selection-end-line="341" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -773,27 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-servlet/2.8.0/gwt-servlet-2.8.0-sources.jar!/com/google/gwt/user/server/rpc/RPC.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="363">
+          <caret line="601" column="8" selection-start-line="601" selection-start-column="8" selection-end-line="601" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -804,36 +775,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="240">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
-          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="177" column="51" selection-start-line="177" selection-start-column="51" selection-end-line="177" selection-end-column="51" />
+        <state relative-caret-position="95">
+          <caret line="165" selection-start-line="165" selection-end-line="165" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3213#3214#0" expanded="true" />
             <element signature="e#3269#3270#0" expanded="true" />
             <element signature="e#4953#4968#0" expanded="true" />
             <element signature="e#5939#5954#0" expanded="true" />
-            <element signature="e#5973#6239#0" expanded="true" />
-            <element signature="e#6238#6239#0" expanded="true" />
+            <element signature="e#6216#6482#0" expanded="true" />
+            <element signature="e#6481#6482#0" expanded="true" />
+            <element signature="e#6633#6900#0" expanded="true" />
+            <element signature="e#6899#6900#0" expanded="true" />
+            <element signature="e#7051#7322#0" expanded="true" />
+            <element signature="e#7321#7322#0" expanded="true" />
+            <element signature="e#7465#7735#0" expanded="true" />
+            <element signature="e#7734#7735#0" expanded="true" />
+            <element signature="e#7881#8153#0" expanded="true" />
+            <element signature="e#8152#8153#0" expanded="true" />
+            <element signature="e#8318#8588#0" expanded="true" />
+            <element signature="e#8587#8588#0" expanded="true" />
+            <element signature="e#8738#9008#0" expanded="true" />
+            <element signature="e#9007#9008#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#733#734#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#1431#1432#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1504#1505#0" expanded="true" />
+            <element signature="e#1540#1541#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="43" selection-start-line="4" selection-start-column="43" selection-end-line="4" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
         </state>
       </provider>
     </entry>

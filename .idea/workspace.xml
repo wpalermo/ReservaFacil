@@ -2,48 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f911702e-db7f-4094-8e98-0a3090ee2a20" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gwt/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gwt/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/GreetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/GreetingServiceAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/server/GreetingServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/webapp/MyWebApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/webapp/MyWebApp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-1.0-SNAPSHOT/MyWebApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/target/gwt-1.0-SNAPSHOT/MyWebApp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/target/gwt-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70F729B" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70F932F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70FA226" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F70FA39E" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F71155CA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F714AE5E" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76637DF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76B7081" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F76ED0F3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F78224FA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F80B3D4A" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F815CCB6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81660CA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8198F62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81A2BDD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81C5E5A" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F81D143C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8213384" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8262A8F" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F82A8CA7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F83220E4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F833E46C" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F8373727" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-unitCache/gwt-unitCache-f160a61272c5ebe805cd2d3d3256ed3ecf14893f-00000165F84E45BF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/bean/Transferencia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/src/main/java/com/mycompany/mywebapp/shared/request/TransferenciaResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gwt/target/gwt-1.0-SNAPSHOT/mywebapp/D2069A43D11F77A3894B9549E0D4A81D.gwt.rpc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gwt/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gwt/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gwt/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/controller/TransferenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/controller/TransferenciaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/response/TransferenciaResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/main/java/com/cvc/financeiro/transferencia/response/TransferenciaResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/test/java/com/cvc/financeiro/transferencia/controller/TransferenciaControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/reserva-facil/transferencia-app/src/test/java/com/cvc/financeiro/transferencia/controller/TransferenciaControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/eureka-service/target/" />
     <ignored path="$PROJECT_DIR$/reserva-facil/taxas-app/target/" />
@@ -355,7 +325,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537532548350" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537552814487" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/gwt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -484,12 +454,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537382053838</updated>
-      <workItem from="1537382056714" duration="25098000" />
+      <workItem from="1537382056714" duration="26902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25098000" />
+    <option name="totallyTimeSpent" value="26902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-1" width="1280" height="997" extended-state="6" />

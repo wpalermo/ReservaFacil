@@ -1,4 +1,6 @@
-package com.mycompany.mywebapp.shared;
+package com.mycompany.mywebapp.shared.request;
+
+import com.mycompany.mywebapp.shared.bean.Transferencia;
 
 import java.io.Serializable;
 import java.util.List;

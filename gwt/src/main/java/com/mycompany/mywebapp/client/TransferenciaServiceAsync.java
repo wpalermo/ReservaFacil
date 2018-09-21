@@ -1,10 +1,8 @@
 package com.mycompany.mywebapp.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.mycompany.mywebapp.shared.TransferenciaRequest;
-import com.mycompany.mywebapp.shared.TransferenciaResponse;
-
-import java.util.List;
+import com.mycompany.mywebapp.shared.request.TransferenciaRequest;
+import com.mycompany.mywebapp.shared.request.TransferenciaResponse;
 
 /**
  * The async counterpart of <code>GreetingService</code>.
