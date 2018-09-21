@@ -4,16 +4,20 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.*;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.cellview.client.TextColumn;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Label;
 import com.mycompany.mywebapp.shared.Transferencia;
 import com.mycompany.mywebapp.shared.TransferenciaRequest;
 import com.mycompany.mywebapp.shared.TransferenciaResponse;
-import org.springframework.util.StringUtils;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -30,15 +34,17 @@ public class MyWebApp implements EntryPoint {
     /**
      * Create a remote service proxy to talk to the server-side Greeting service.
      */
-    private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    private final TransferenciaServiceAsync transferenciaService = GWT.create(TransferenciaService.class);
 
     /**
      * This is the entry point method.
      */
     public void onModuleLoad() {
         final Button sendButton = new Button("Transferir");
+        final Button consultaButton = new Button("Consultar transferencias");
         final TextBox nameField = new TextBox();
         final Label errorLabel = new Label();
+
 
 
 
@@ -63,8 +69,8 @@ public class MyWebApp implements EntryPoint {
         // Add the nameField and sendButton to the RootPanel
         // Use RootPanel.get() to get the entire body element
         RootPanel.get("sendButtonContainer").add(sendButton);
+        RootPanel.get("consultaButtonContainer").add(consultaButton);
         RootPanel.get("errorLabelContainer").add(errorLabel);
-
 
 
         RootPanel.get("contaOrigemLabelContainer").add(contaOrigemLabel);
@@ -81,67 +87,28 @@ public class MyWebApp implements EntryPoint {
         RootPanel.get("dataTransferenciaFieldContainer").add(dataTransferenciaField);
 
 
-        // Focus the cursor on the name field when the app loads
-        nameField.setFocus(true);
-        nameField.selectAll();
 
-        // Create the popup dialog box
-        final DialogBox dialogBox = new DialogBox();
-        dialogBox.setText("Remote Procedure Call");
-        dialogBox.setAnimationEnabled(true);
-        final Button closeButton = new Button("Close");
-        // We can set the id of a widget by accessing its Element
-        closeButton.getElement().setId("closeButton");
-        final Label textToServerLabel = new Label();
-        final HTML serverResponseLabel = new HTML();
-        VerticalPanel dialogVPanel = new VerticalPanel();
-        dialogVPanel.addStyleName("dialogVPanel");
-        dialogVPanel.add(new HTML("<b>Sending name to the server:</b>"));
-        dialogVPanel.add(textToServerLabel);
-        dialogVPanel.add(new HTML("<br><b>Server replies:</b>"));
-        dialogVPanel.add(serverResponseLabel);
-        dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
-        dialogVPanel.add(closeButton);
-        dialogBox.setWidget(dialogVPanel);
-
-        // Add a handler to close the DialogBox
-        closeButton.addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
-                dialogBox.hide();
-                sendButton.setEnabled(true);
-                sendButton.setFocus(true);
-            }
-        });
 
         // Create a handler for the sendButton and nameField
-        class MyHandler implements ClickHandler, KeyUpHandler {
+        class TransferenciaHandler implements ClickHandler {
             /**
              * Fired when the user clicks on the sendButton.
              */
             public void onClick(ClickEvent event) {
-                sendNameToServer();
-            }
-
-            /**
-             * Fired when the user types in the nameField.
-             */
-            public void onKeyUp(KeyUpEvent event) {
-                if (event.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
-                    sendNameToServer();
-                }
+                solicitarTransferencia();
             }
 
             /**
              * Send the name from the nameField to the server and wait for a response.
              */
-            private void sendNameToServer() {
+            private void solicitarTransferencia() {
                 // First, we validate the input.
                 errorLabel.setText("");
                 String textToServer = contaDestinoField.getText();
 
                 String valor = valorField.getText();
 
-                if(valor != null && valor.isEmpty() )
+                if (valor != null && valor.isEmpty())
                     valor = "0";
 
                 Transferencia transferencia = new Transferencia();
@@ -160,9 +127,10 @@ public class MyWebApp implements EntryPoint {
                 TransferenciaRequest request = new TransferenciaRequest();
                 request.setTransferencia(transferencia);
 
-                greetingService.post(request, new AsyncCallback<Void>() {
+                transferenciaService.post(request, new AsyncCallback<Void>() {
                     @Override
                     public void onFailure(Throwable caught) {
+
 
                     }
 
@@ -173,11 +141,57 @@ public class MyWebApp implements EntryPoint {
                 });
 
             }
+
+
         }
 
+
+        class ConsultaHandler implements ClickHandler{
+
+            List<Transferencia> response = new ArrayList<Transferencia>();
+
+            @Override
+            public void onClick(ClickEvent event) {
+                transferenciaService.get(new AsyncCallback<TransferenciaResponse>() {
+                    @Override
+                    public void onFailure(Throwable caught) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(TransferenciaResponse result) {
+
+                        response = result.getTransferencias();
+                        RootPanel.get("testLabelContainer").add(new Label(response.get(0).getContaOrigem()));
+
+
+                        CellTable<Transferencia> table = new CellTable<Transferencia>();
+
+                        TextColumn<Transferencia> contaOrigemColumn = new TextColumn<Transferencia>() {
+                            @Override
+                            public String getValue(Transferencia object) {
+                                return object.getContaOrigem();
+                            }
+                        };
+
+                        table.addColumn(contaOrigemColumn, "Conta Origem");
+                        RootPanel.get().add(table);
+
+                    }
+                });
+            }
+        }
+
+
+
         // Add a handler to send the name to the server
-        MyHandler handler = new MyHandler();
-        sendButton.addClickHandler(handler);
-        nameField.addKeyUpHandler(handler);
+        TransferenciaHandler transferenciaHandler = new TransferenciaHandler();
+        sendButton.addClickHandler(transferenciaHandler);
+
+        ConsultaHandler consultaHandler = new ConsultaHandler();
+        consultaButton.addClickHandler(consultaHandler);
+
+
+
     }
 }

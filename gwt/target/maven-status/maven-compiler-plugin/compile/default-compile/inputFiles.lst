@@ -1,8 +1,8 @@
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/client/GreetingService.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/client/GreetingServiceAsync.java
-/home/william/DEV/projects/gwt/src/main/java/com/mycompany/mywebapp/server/GreetingServiceImpl.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaServiceAsync.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaRequest.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/TransferenciaResponse.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/Transferencia.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/MyWebApp.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/shared/FieldVerifier.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/client/TransferenciaService.java
+/home/william/DEV/repository/ReservaFacil/gwt/src/main/java/com/mycompany/mywebapp/server/TransferenciaServiceImpl.java

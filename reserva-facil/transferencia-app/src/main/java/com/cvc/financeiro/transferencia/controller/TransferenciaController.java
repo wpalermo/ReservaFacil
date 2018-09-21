@@ -34,17 +34,15 @@ public class TransferenciaController {
 
 	@RequestMapping(method = RequestMethod.GET, produces = { "application/json" })
 	@ResponseStatus(value = HttpStatus.OK)
-	public ResponseEntity<List<TransferenciaResponse>> get() {
+	public ResponseEntity<TransferenciaResponse> get() {
 
-		List<TransferenciaResponse> returnable = transferenciaService.buscarTodasTransferencias().stream().map(t -> {
-			TransferenciaResponse response = new TransferenciaResponse();
-			response.setTransferencia(t);
-			return response;
-		}).collect(Collectors.toList());
+
+		TransferenciaResponse response = new TransferenciaResponse();
+		response.setTransferencias(transferenciaService.buscarTodasTransferencias());
 
 		log.info("Operacao GET realizada com sucesso");
 
-		return new ResponseEntity<>(returnable, HttpStatus.OK);
+		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
 	@RequestMapping(method = RequestMethod.PUT, path = "/{id}")

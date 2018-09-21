@@ -1,8 +1,12 @@
 package com.mycompany.mywebapp.shared;
 
-public class TransferenciaResponse {
+import java.io.Serializable;
+import java.util.List;
+
+public class TransferenciaResponse implements Serializable {
 	
 	private Transferencia transferencia;
+	private List<Transferencia> transferencias;
 	private String message;
 
 	public TransferenciaResponse() {
@@ -28,6 +32,13 @@ public class TransferenciaResponse {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
 
+
+	public List<Transferencia> getTransferencias() {
+		return transferencias;
+	}
+
+	public void setTransferencias(List<Transferencia> transferencias) {
+		this.transferencias = transferencias;
+	}
 }
