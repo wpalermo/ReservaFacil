@@ -7,6 +7,14 @@
 # BlueJ files
 *.ctxt
 
+#intellij
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+out/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
