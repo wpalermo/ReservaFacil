@@ -1,3 +1,6 @@
 [submodule "ReservaFacil-docker"]
 	path = ReservaFacil-docker
 	url = https://github.com/wpalermo/ReservaFacil-docker
+[submodule "ReservaFacil-golang"]
+	path = ReservaFacil-golang
+	url = https://github.com/wpalermo/ReservaFacil-golang
