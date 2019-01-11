@@ -1,0 +1,3 @@
+[submodule "ReservaFacil-docker"]
+	path = ReservaFacil-docker
+	url = https://github.com/wpalermo/ReservaFacil-docker
